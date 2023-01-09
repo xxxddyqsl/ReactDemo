@@ -1,0 +1,21 @@
+.wrapper{
+    flex: 1;
+    height: 0;
+    width: 100%;
+}
+.wrapper ul{
+    flex: 1;
+    height: 0;
+    width: 100%;
+    overflow: auto;
+}
+.wrapper ul li{
+    padding: 4px 12px;
+    margin: 10px 4px;
+}
+.wrapper ul li:nth-child(odd){
+    background-color:#f3f3f3;
+}
+.wrapper ul li:nth-child(even){
+    
+}

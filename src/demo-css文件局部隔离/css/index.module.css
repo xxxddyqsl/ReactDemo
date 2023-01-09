@@ -1,0 +1,10 @@
+.warper{
+
+    border: 1px solid blue;
+}
+.app ul li {
+    color: red;
+}
+:global(.win_warper){
+    color: blueviolet;
+}

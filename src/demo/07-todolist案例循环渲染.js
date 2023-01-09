@@ -2,23 +2,28 @@ import React, { Component } from 'react'
 
 export default class textFor extends Component {
     state = {
-        list: [
+        myText : '',
+        todoList: [
             {
                 // 调用自定义GenNonDuplicateID函数 生成唯一id
                 id: this.GenNonDuplicateID(),
-                myText: 'aaa',
+                text: 'aaa',
+                //模拟数据 点击或默认 多选框控制是否 选中
+                isChecked:false,
             },
             {
                 id: this.GenNonDuplicateID(),
-                myText: 'bbb',
+                text: 'bbb',
+                isChecked:false,
             },
             {
                 id: this.GenNonDuplicateID(),
-                myText: 'ccc',
+                text: 'ccc',
+                isChecked:false,
             },
         ],
     }
-    myText = '';
+   
     render() {
         var showTitle = <div>暂无列表数据1</div>;
         return (
@@ -29,7 +34,11 @@ export default class textFor extends Component {
                 */
             <div className='app-assembly'>
                 <h1>07-循环渲染</h1>
-                <input type='text' ref={(event) => { this.myText = event }}></input>
+                {/* <input type='text' ref={(event) => { this.myText = event }}></input> */}
+                {/* 使用受控组件优化 onChange监听 input 状态绑定input的 value值   状态更新React重新渲染 render() */}
+                <input type='text' value={this.state.myText} onChange={(event) => { this.setState({
+                    myText : event.target.value
+                }) }}></input>
                 <button onClick={() => {
 
                     this.addList()
@@ -39,13 +48,14 @@ export default class textFor extends Component {
                     <div> 循环渲染方式1：原生js的map 方法</div>
                     {
                         // 循环渲染方式1：原生js的map 方法
-                        this.state.list.map((item, index) => {
+                        this.state.todoList.map((item, index) => {
                             // 注意：必须在循环内 注入唯一的key 否则报错 （通过 diff 算法 对比key 更新渲染真实dom）
                             return (
                                 <li key={item.id} onClick={(event) => { this.handleClick(event, item) }} >
-                                    {/* {item.myText} */}
+                                    <input type="checkbox" checked={item.isChecked} onChange={(event)=>this.handleChange(event,item)} />
+                                    {item.isChecked?'完成':'2未完成'}
                                     {/* 富文本展示 ： 如在input内输入 <h1>富文本展示</h1> */}
-                                    <span dangerouslySetInnerHTML={ {__html: ' 富文本展示 ：'+item.myText} }></span>
+                                    <span style={{textDecoration:item.isChecked?"line-through":""}} dangerouslySetInnerHTML={ {__html: ' 富文本展示 ：'+item.text} }></span>
 
                                     <button onClick={(event) => {
                                         this.deleList(event, item.id)
@@ -55,32 +65,31 @@ export default class textFor extends Component {
                             )
                         })
                     }
-                    <br></br>
-                    <div> 循环渲染方式2：使用函数方法 </div>
+                    {/* <br></br> */}
+                    {/* <div> 循环渲染方式2：使用函数方法 </div>
                     {
 
                         // 循环渲染方式2：使用函数方法
-                        this.setList(this.state.list)
-                    }
+                        this.setList(this.state.todoList)
+                    } */}
                 </ul>
                 {/* 条件渲染 可直接是 标签 组件 变量 */}
                 {/* 条件渲染 方式1:  创建节点 + 删除节点 */}
-                {/* {this.state.list.length<=0?<div>暂无列表数据</div>:null} */}
+                {/* {this.state.todoList.length<=0?<div>暂无列表数据</div>:null} */}
                 {/* 条件渲染 方式2: 创建节点 + 删除节点*/}
-                {this.state.list.length <= 0 ? showTitle : null}
-                {/*条件渲染 方式3:创建节点 + 删除节点 前面的条件（ this.state.list.length<=0 ）为真时 才能执行后面的创建div 节点  条件为假 删除div 节点*/}
-                {this.state.list.length <= 0 && <div>暂无列表数据2</div>}
+                {this.state.todoList.length <= 0 ? showTitle : null}
+                {/*条件渲染 方式3:创建节点 + 删除节点 前面的条件（ this.state.todoList.length<=0 ）为真时 才能执行后面的创建div 节点  条件为假 删除div 节点*/}
+                {this.state.todoList.length <= 0 && <div>暂无列表数据2</div>}
                 {/* 条件渲染 方式4: 元素节点一直在 只是 通过设置 class 控制隐藏显示  节点不会被删除*/}
-                <div className={this.state.list.length <= 0?'':'hidden'}>暂无列表数据3</div>
+                <div className={this.state.todoList.length <= 0?'':'hidden'}>暂无列表数据3</div>
                 {/* 条件渲染 方式5: 元素节点一直在 只是 通过行内样式设置   控制隐藏显示 节点不会被删除*/}
-                <div style={this.state.list.length <= 0?{}:{display: 'none'} }>暂无列表数据4</div>
+                <div style={this.state.todoList.length <= 0?{}:{display: 'none'} }>暂无列表数据4</div>
             </div>
         )
     }
     handleClick = (event, data) => {
         //阻止事件冒泡
-        event.preventDefault()
-        event.stopPropagation()
+        // event.stopPropagation()
         //   点击改变自己的背景色
         // event.target.style.backgroundColor='red';
         // 获取父节点event.target.parentNode 下的所有子节点children
@@ -113,7 +122,8 @@ export default class textFor extends Component {
             // 注意：必须在循环内 注入唯一的key 否则报错 （通过 diff 算法 对比key 更新渲染真实dom）
             res.push(
                     <li key={list[i].id} onClick={(event) => { this.handleClick(event, list[i]) }}>
-                        {list[i].myText}
+                          <input type='checkbox' checked={list[i].isChecked} onChange={()=>{this.handleChange(list[i])}}/>
+                        {list[i].text}
                         <button onClick={(event) => { this.deleList(event, list[i].id) }}>删除</button>
                     </li>
                     );
@@ -122,23 +132,25 @@ export default class textFor extends Component {
     }
     // 点击新增 列表
     addList = () => {
-        // 尽量不用直接操作修改this.state.list状态值  使用 slice()截取或concat()也可以 只要是能深度拷贝都可以 ( 不传参时为复制一份数据给newList ) 深度拷贝（操作修改newList就无法影响状态值this.state.lis） 
-        let data = this.state.list.slice();
+        // 尽量不用直接操作修改this.state.todoList状态值  使用 slice()截取或concat()也可以 只要是能深度拷贝都可以 ( 不传参时为复制一份数据给newList ) 深度拷贝（操作修改newList就无法影响状态值this.state.lis） 
+        let data = this.state.todoList.slice();
         // 调用 this.GenNonDuplicateID() 生成唯一id
-        data.push({ id: this.GenNonDuplicateID(), myText: this.myText.value })
-        // 通过 setState 修改 this.state.list 状态  通知React 更新dom
+        data.push({ id: this.GenNonDuplicateID(), text: this.state.myText,isChecked:false })
+        // 通过 setState 修改 this.state.todoList 状态  通知React 更新dom
         this.setState({
-            list: data
+            todoList: data,
+            // 修改input状态 清空input
+            myText:''
         })
         // 新增完成 清空input
-        this.myText.value = '';
+        // this.myText.value = '';
         // console.log(data)
     }
 
     // 点击删除 列表指定数据
     deleList = (event, key) => {
-        // 尽量不用直接操作修改this.state.list状态值  使用 slice()截取或concat()也可以 只要是能深度拷贝都可以 ( 不传参时为复制一份数据给newList ) 深度拷贝（操作修改newList就无法影响状态值this.state.lis） 
-        // let data = this.state.list.slice();
+        // 尽量不用直接操作修改this.state.todoList状态值  使用 slice()截取或concat()也可以 只要是能深度拷贝都可以 ( 不传参时为复制一份数据给newList ) 深度拷贝（操作修改newList就无法影响状态值this.state.lis） 
+        // let data = this.state.todoList.slice();
         // 方式1：
         // 删除指定数据
         // for (let i in data) {
@@ -146,19 +158,35 @@ export default class textFor extends Component {
         //         data.splice(i, 1);
         //     }
         // }
-        // // 通过 setState 修改 this.state.list 状态  通知React 更新dom
+        // // 通过 setState 修改 this.state.todoList 状态  通知React 更新dom
         // this.setState({
         //     list: data
         // });
         // 方式2： filter函数 用于对数组进行过滤 并且 不会对空数组进行检测、不会改变原始数组 因此 可不用 如上方例子 深度拷贝 数据
         this.setState({
-            list: this.state.list.filter((item, index) => { return (item.id !== key) })
+            todoList: this.state.todoList.filter((item, index) => { return (item.id !== key) })
         });
-        console.log(this.state.list.filter((item, index) => { return (item.id !== key) }))
+        console.log(this.state.todoList.filter((item, index) => { return (item.id !== key) }))
 
         //阻止事件冒泡
-        event.preventDefault()
         event.stopPropagation()
+    }
+    handleChange=(event,data)=>{
+        // 深度拷贝  注意：只有一级属性为深拷贝，二级属性复杂的对象后就是浅拷贝
+        let newList=[...this.state.todoList];
+        for(let i in newList){
+            // 校验 获取改变的input 数据id 取反
+            if(newList[i].id === data.id ){
+                newList[i].isChecked=!newList[i].isChecked;
+                break;
+            }
+        }
+        console.log(newList)
+        // 更新状态
+        this.setState({
+            todoList:newList
+        })
+        console.log(this.state.todoList)
     }
     // 利用时间戳 + Math.random()随机数 + toString转换36进制版本 substr去除随机数前两位 生成唯一id
     GenNonDuplicateID() {

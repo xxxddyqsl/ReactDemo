@@ -99,7 +99,7 @@ export default class test extends Component {
   render() {
     return (
       <div className='app-assembly'>
-           <div> 03-组件嵌套 </div>
+           <h1> 03-组件嵌套 </h1>
           {/* 03-组件嵌套 */}
           {/* 嵌套子组件-头部  将 {name: '嵌套子组件-选项卡'} 作为 props 传入Navbar class组件 this.props.namef 获取传入组件的参数 */}
           <Navbar name='嵌套子组件-头部' title='Navbar' url={imglogo} ></Navbar>

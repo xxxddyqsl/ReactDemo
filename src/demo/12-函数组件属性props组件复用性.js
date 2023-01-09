@@ -10,7 +10,7 @@ export default function TestFu(props) {
         {/* 类组件 - 导航栏 */}
         <Navbar text={'函数组件导航栏'} />
         {/* 函数组件 - 侧边栏 */}
-        <Sidebar bg={'burlywood'}/>
+        <Sidebar bg={'burlywood'} position={{position:'absolute',top:'0px'}} about='left' />
     </div>
   )
 }

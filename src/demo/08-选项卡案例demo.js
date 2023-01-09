@@ -29,7 +29,7 @@ export default class testTab extends Component {
     render() {
         return (
             <div className='app-assembly'>
-                <h1>08-选项卡案例demo</h1>
+                <h1>08-选项卡案例demo+搜索功能</h1>
                 <div className='tabs-wrapper'>
                     <div className='main-tabs'>
                         {/* {

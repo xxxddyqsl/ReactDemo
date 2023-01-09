@@ -22,6 +22,7 @@ class Example extends Component {
         <div> 获取元素方式1： 通过 React.createRef() 的方式  :</div>
           {/* 获取  元素 方式1： 通过 React.createRef() 的方式 */}
           <input type='text' ref={this.props.inpEvt}></input>
+          {/* 子调用父组件传入 的回调函数  */}
           <button onClick={() => { this.props.callback() }}>ref==={'>'}获取元素方式1</button>
         </div>
         <div>
@@ -65,7 +66,7 @@ export default class testRef extends Component {
   render() {
     return (
       <div className='app-assembly'>
-        <div> 05-ref的应用</div>
+        <h1> 05-ref的应用</h1>
         {/* 获取标签元素的inpEvt属性名传入子组件 绑定在子组件内的input身上 callback 匿名函数 传入子组件 子组件内按钮点击触发*/}
         <Example inpEvt={this.myRef} inpVal={this.state} callback={() => this.getInpV()} ></Example>
         InputEvent:{this.state.InputEvent}

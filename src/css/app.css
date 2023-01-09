@@ -1,3 +1,7 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
 .gg-flex-1 {
     display: flex;
     align-items: center;
@@ -152,4 +156,10 @@ ul{
 /* 查询匹配 关键字 高亮 */
 .keyHighlight{
     color: red;
+}
+
+.active_demo{
+    padding: 4px;
+    color: #fff;
+    background-color: skyblue;
 }

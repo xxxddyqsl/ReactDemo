@@ -3,21 +3,24 @@ import React, { Component, useState } from 'react'
 // 在 函数组件中使用 使用 State Hook 状态记录值  必须导入useState（函数组件的状态）
 function Example() {
 
-    /* const [state, setState] = useState(initialState); 返回一个 state，以及更新 state 的函数。
+    /* const [state, setCount] = useState(initialState); 返回一个 state，以及更新 state 的函数。
  在初始渲染期间，返回的状态 (state) 与传入的第一个参数 (initialState) 值相同。
- setState 函数用于更新 state。它接收一个新的 state 值并将组件的一次重新渲染加入队列。
+ setCount 函数用于更新 state。它接收一个新的 state 值并将组件的一次重新渲染加入队列。
 
  注意：
  与 class 组件中的 setState 方法不同，useState 不会自动合并更新对象。你可以用函数式的 setState 结合展开运算符来达到合并更新对象的效果。
  useReducer 是另一种可选方案，它更适合用于管理包含多个子值的 state 对象
  */
 
-    // 声明一个叫 "count" 的 state 变量 count 等于 useState内的参数0 修改count 时 必须调用 setCount 函数
-    const [count=0, setCount] = useState();
-    // const [count, setCount] = useState(0);
+ /*
+ 声明一个叫 "count" 的 state 变量 声明修改"count" 的 state 变量的方式 setCount() (注：类似class类组件中的setState方法区别在于 类组件中的setState是固定方法名 函数组件中可自定义（setCount() ）修改state 变量的方法名称  )   
+ useState内的参数0 为函数组件state状态值 （count的默认值） 修改 count 时 必须调用 自定义的 setCount 名函数
+ */ 
+    const [count, setCount] = useState(0);
     return (
         <div>
             <span> <h1>You clicked {count} times</h1></span>
+            {/*  // 和class组件的 this.setState({ count: this.state.count+1 }) 类似 */}
             <button onClick={() => setCount(count + 1)}>
                 点击计数器：{count}(次数)
             </button>
@@ -76,7 +79,7 @@ export default class testClick extends Component {
     render() {
         return (
             <div className='app-assembly'>
-                <div> 04-事件绑定</div>
+                <h1> 04-事件绑定</h1>
                 {/* 函数组件内 事件绑定 */}
                 <Example></Example>
                 {/* 绑定 ref 获取 input 标签 元素 的值*/}
