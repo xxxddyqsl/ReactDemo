@@ -83,6 +83,8 @@ import MobxA from './demo-Mobx-通信状态管理/01-Mobx安装介绍'
 import MobxB from './demo-Mobx-通信状态管理/02-Mobx使用'
 import MobxC from './demo-Mobx-通信状态管理/03-Mobx-替代redux案例'
 import MobxReactA from './demo-(Mobx-react)-通信状态管理/01-Mobx-react安装介绍'
+
+import TsA from './demo-TS/01-Ts介绍'
 // 导入的文件，需要在src目录下 (之前引入 // import '../public/css/app.css' public下的css文件时引起报错) ，解决办法可将文件移到src目录下 或配置 webpack.config.js内的new ModuleScopoPlugin 内容全部注释，重启项目即可
 // 引发的原因是ModuleScopePlugin这个插件功能是为了防止用户引入src目录之外的文件导致不可预期的结果。因为babel都是通过src目录内文件进行入口转义的，如果你引入了src目录外，例如src1，这样这个文件就不能经过babel转义。除非你保证你引入文件已经经过转义，所以你可以不使用该插件进行限制。
 import './css/app.css'
@@ -206,8 +208,9 @@ class app extends React.Component{
                 <MobxA/>
                 <MobxB/>
                 <MobxC/>
-
                 <MobxReactA></MobxReactA>
+
+                <TsA/>
             </div>
         );
       }

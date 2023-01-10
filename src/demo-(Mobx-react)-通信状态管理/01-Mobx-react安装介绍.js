@@ -25,7 +25,7 @@ import '../css/app.css'
 
     inject 函数 帮助获取 store 值 传入Provider上绑定的属性 store={store} 字符串 
 */
-import {autorun} from 'mobx'
+// import {autorun} from 'mobx'
 
 import { inject ,observer,Observer} from "mobx-react"
 
