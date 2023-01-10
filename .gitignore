@@ -2,7 +2,7 @@
 
 # dependencies
 # 过滤 不提交node_modules文件夹到仓库
-/node_modules
+ReactDemo/node_modules
 /.pnp
 .pnp.js
 
@@ -10,7 +10,7 @@
 /coverage
 
 # production
-/build
+ReactDemo/build
 
 # misc
 .DS_Store
