@@ -1,8 +1,8 @@
 import React from "react"
 // 导入 react-redux 库 提供 connect 函数生成一个父组件(高阶级组件) 这个父组件负责帮你 订阅 取消订阅 ，订阅到这个值的改变时 利用父传子的方式，将值给子组件 例如通过 this.props.isShow 即可访问到该值
 import {connect} from "react-redux"
-
-
+// 导入 axios 请求拦截器 触发正在加载
+import  './util/request'
 
 import TestA from './demo/01-class类组件'
 // 导入 jsx 类组件  使用 * as 设置别名 *表示所有 下方使用时需要 <TestB.appb></TestB.appb>

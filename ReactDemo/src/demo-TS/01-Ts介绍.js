@@ -5,7 +5,13 @@ import React from 'react'
     2.类型系统是最好的文档，增加了代码的可读性和可维护性
     3.有一定的学习成本，需要理解接口（Interfaces），泛型（Generics）,类（Class）等
     4.ts最后被编译成js
+
+    安装 react+ts 模板
+    create-react-app ReactTS --template typescript
+
+    具体内容在 reactts 文件下可见
 */
+
 export default function Test() {
     return (
         <div className='app-assembly'>
