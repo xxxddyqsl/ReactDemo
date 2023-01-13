@@ -1,5 +1,8 @@
 import { Toast } from "antd-mobile";
 import axios from "axios";
+/*
+文档地址  https://github.com/axios/axios#interceptors 
+*/
 // 添加 axios 请求拦截器
 axios.interceptors.request.use(function(config){
     // 发起请求前 显示正在加载
