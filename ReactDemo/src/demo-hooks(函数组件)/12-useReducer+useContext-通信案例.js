@@ -18,6 +18,8 @@ const reducer = (prevState, action) => {
             return newState;
 
         default:
+            // redux-persist持续数据化失效的经历 - 解构返回了一个新的对象 newState ，直接重置了为初始状态
+            // return newState;错误 引发redux-persist持续数据化失效
             return prevState;
     }
 }

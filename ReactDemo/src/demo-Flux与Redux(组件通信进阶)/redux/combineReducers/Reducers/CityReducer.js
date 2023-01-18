@@ -18,7 +18,9 @@ const CityReducer = function (prevState={}, action) {
             newState.cityId=action.cityId
             return newState;
         default:
-            return newState;
+            // redux-persist持续数据化失效的经历 - 解构返回了一个新的对象 newState ，直接重置了为初始状态
+            // return newState;错误 引发redux-persist持续数据化失效
+            return prevState;
     }
 } 
 export default CityReducer

@@ -21,6 +21,8 @@ const CinemaListReducer = function (prevState={list:[]}, action) {
             //方式2: 使用 fromJS （深度拷贝） 方式 setIn 修改属性 toJS()转为普通js对象
             return newState.setIn(['list'],action.payload).toJS();
         default:
+            // redux-persist持续数据化失效的经历 - 解构返回了一个新的对象 newState ，直接重置了为初始状态
+            // return newState;错误 引发redux-persist持续数据化失效
             return prevState;
     }
 } 

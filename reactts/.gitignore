@@ -1,9 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-# 过滤 不提交node_modules文件夹到仓库
-ReactDemo/node_modules
-reactts/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
@@ -11,8 +9,8 @@ reactts/node_modules
 /coverage
 
 # production
-ReactDemo/build
-reactts/build
+/build
+
 # misc
 .DS_Store
 .env.local
