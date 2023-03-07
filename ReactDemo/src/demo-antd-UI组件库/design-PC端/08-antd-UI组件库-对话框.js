@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import { Button, Modal ,Pagination } from 'antd';
 export default function Test() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
@@ -26,6 +26,8 @@ export default function Test() {
                     <p>Some contents...</p>
                     <p>Some contents...</p>
                 </Modal>
+
+                <Pagination    onChange={()=>{}} total={103} showSizeChanger={false} showTitle={false}></Pagination>
             </>
         </div>
     )

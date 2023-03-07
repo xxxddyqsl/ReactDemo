@@ -9,7 +9,10 @@ import './css/utils.css'
 // import App from './04-demo-ts+router路由/App';
 
 // react+ts+redux状态管理-demo文件独立入口
-import App from './05-demo-ts+redux状态管理/App';
+// import App from './05-demo-ts+redux状态管理/App';
+
+// react+ts+antdMoble组件库 文件独立入口
+import App from './06-demo-ts+antdMoble组件库/App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

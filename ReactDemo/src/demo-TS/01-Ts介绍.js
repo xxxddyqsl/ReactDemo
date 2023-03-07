@@ -7,7 +7,7 @@ import React from 'react'
     4.ts最后被编译成js
 
     安装 react+ts 模板
-    create-react-app ReactTS --template typescript
+    npx create-react-app ReactTS --template typescript
 
     具体内容在 reactts 文件下可见
 */

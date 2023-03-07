@@ -24,7 +24,6 @@ import NotFound from '../views/NotFound/NotFound'
 export default class IndexRouter extends Component {
   render() {
     return (
-      <HashRouter>
         <Switch>
             <Route path='/films' component={Films}></Route>
             <Route path='/cinema' component={Cinema}></Route>
@@ -35,7 +34,6 @@ export default class IndexRouter extends Component {
             {/*  Route 路由匹配不到  path属性    前面的 3个Route 路由 和 Redirect路由重定向 都不匹配时才能执行到此处的 路由 显示自定义的404组件 */}
             <Route component={NotFound}></Route>
         </Switch>
-      </HashRouter>
     )
   }
 }

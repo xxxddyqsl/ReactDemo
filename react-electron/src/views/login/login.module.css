@@ -1,0 +1,9 @@
+.header{
+    /* user-select属性可以设置是否允许用户选择页面中的图文内容； */
+    user-select: none;
+      /* -webkit-app-region: drag; 使得窗口在普通大小可以拖动 */
+    -webkit-app-region:drag;
+
+    border: 1px solid red;
+    padding: 10px 0;
+}

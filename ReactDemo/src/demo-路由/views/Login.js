@@ -1,5 +1,8 @@
 import React ,{useRef}from 'react'
-
+// const test = ((val)=>{
+//   return {aaa:val};
+// })
+// console.log(test('测试'))
 export default function Login(props) {
     const myInput=useRef();
   return (

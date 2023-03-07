@@ -1,3 +1,9 @@
+/*
+
+    安装 react 模板
+    npx create-react-app react-demo
+*/
+
 import React from "react"
 // function app(){
 //     console.log('Hello, world!',);

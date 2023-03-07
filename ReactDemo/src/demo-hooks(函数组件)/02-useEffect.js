@@ -35,6 +35,7 @@ export default function Test() {
         // useEffect 触发 执行 的逻辑 字符串截取首字母大写+拼接后续字符串
         setCount(count.substring(0, 1).toUpperCase() + count.substring(1));
         console.log('useEffect 阻止无效更新')
+        alert(1111)
         // [count] 注入useEffect第一个参数（回调函数） 执行的依赖
     }, [count]);
     return (

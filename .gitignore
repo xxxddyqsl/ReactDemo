@@ -4,6 +4,8 @@
 # 过滤 不提交node_modules文件夹到仓库
 ReactDemo/node_modules
 reactts/node_modules
+reactmui/node_modules
+react-electron/node_modules
 /.pnp
 .pnp.js
 
@@ -13,6 +15,12 @@ reactts/node_modules
 # production
 ReactDemo/build
 reactts/build
+reactmui/build
+react-electron/build
+ReactDemo/dist
+reactts/dist
+reactmui/dist
+react-electron/dist
 # misc
 .DS_Store
 .env.local
