@@ -17,9 +17,6 @@ ReactDemo/build
 reactts/build
 reactmui/build
 react-electron/build
-ReactDemo/dist
-reactts/dist
-reactmui/dist
 react-electron/dist
 # misc
 .DS_Store

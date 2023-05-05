@@ -1,0 +1,105 @@
+
+span[data-testid='mentionText'] {
+    color: #17ba77;
+    background-color: #fff;
+   
+}
+
+span[data-testid='mentionText']:hover {
+    background-color: #fff;
+}
+.mentionSuggestionsEntryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.mentionSuggestionsEntryText{
+    display: inline-block;
+    margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 368px;
+    font-size: 0.9em;
+    margin-bottom: 0.2em;
+}
+
+.mentionSuggestionsEntryAvatar{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+}
+.mentionSuggestionsEntry{
+    padding: 7px 10px 3px 10px;
+    -webkit-transition: background-color 0.4s cubic-bezier(0.27, 1.27, 0.48, 0.56);
+    transition: background-color 0.4s cubic-bezier(0.27, 1.27, 0.48, 0.56);
+}
+.mentionSuggestionsEntryFocused{
+    padding: 7px 10px 3px 10px;
+    -webkit-transition: background-color 0.4s cubic-bezier(0.27, 1.27, 0.48, 0.56);
+    transition: background-color 0.4s cubic-bezier(0.27, 1.27, 0.48, 0.56);
+    background-color: #e6f3ff;
+}
+.mentionSuggestions{
+    border: 1px solid #eee;
+    position: absolute;
+    min-width: 220px;
+    max-width: 440px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0px 4px 30px 0px rgb(220 220 220);
+    cursor: pointer;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    z-index: 2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    box-sizing: border-box;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+.Emoji-box{
+    display: flex;
+    align-content: flex-start;
+  align-items: center;
+  justify-content:  flex-start;
+  width: 443px;
+    /* height: 200px;  */
+    padding: 10px .3em; 
+    list-style: none;
+    flex-wrap: wrap;
+    z-index: 1000;
+    box-sizing: content-box;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 30px 0 #dcdcdc; 
+}
+.Emoji-box li{
+    cursor: pointer;
+    width:24px;
+    height: 24px;
+    margin: 3px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emoji_icon{
+    color: transparent;
+    width:24px;
+    height:24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+  }

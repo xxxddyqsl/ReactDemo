@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 /*
     react 函数组件 在 useState<string>('')  后面通过 泛型（Generics）写法 约定状态
     写法如下:
-    const [name, setName] = useState<string>()
+    const [name, setName] = useState<string>('初始默认值')
      
 */
 interface IState{

@@ -88,6 +88,13 @@ import TsA from './demo-TS/01-Ts介绍'
 import StyledComponentsA from './demo-styled-components/01-styled-components-安装介绍'
 import StyledComponentsB from './demo-styled-components/02-styled-components-生成组件透传props属性的应用'
 import StyledComponentsC from './demo-styled-components/03-styled-components-样式任意化组件-高阶组件'
+import StyledComponentsD from './demo-styled-components/04-styled-components-复用性'
+import StyledComponentsE from './demo-styled-components/05-styled-components-动画样式'
+import ReactTestRendererA from './demo-单元测试/01-单元测试'
+
+import DraftA from './demo-Draftjs(富文本)/demo-mentions(@列表)/demo-02'
+import DraftB from './demo-Draftjs(富文本)/demo-Emoji(表情符号)/SimpleEmojiEditor'
+import DraftC from './demo-Draftjs(富文本)/demo-image(图片)/AddImageEditor'
 // 导入的文件，需要在src目录下 (之前引入 // import '../public/css/app.css' public下的css文件时引起报错) ，解决办法可将文件移到src目录下 或配置 webpack.config.js内的new ModuleScopoPlugin 内容全部注释，重启项目即可
 // 引发的原因是ModuleScopePlugin这个插件功能是为了防止用户引入src目录之外的文件导致不可预期的结果。因为babel都是通过src目录内文件进行入口转义的，如果你引入了src目录外，例如src1，这样这个文件就不能经过babel转义。除非你保证你引入文件已经经过转义，所以你可以不使用该插件进行限制。
 import './css/app.css'
@@ -218,6 +225,12 @@ class app extends React.Component{
                 <StyledComponentsA/>
                 <StyledComponentsB/>
                 <StyledComponentsC/>
+                <StyledComponentsD/>
+                <StyledComponentsE/>
+                <ReactTestRendererA/>
+                <DraftA/>
+                <DraftB/>
+                <DraftC/>
             </div>
         );
       }

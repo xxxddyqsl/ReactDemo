@@ -13,7 +13,7 @@ import React from 'react'
 import styled from "styled-components"
 const Child=(props)=>{
     return (
-        // 通过props.className 接收添加的样式
+        //  通过props.className 接收 StyledChild 内添加的样式
         <div className={props.className}>
             初始-Child子组件-无样式-通过styled高阶组件改造
             {/*  通过-插槽 props.children  将测试的 div 标签 插入*/}
@@ -21,15 +21,19 @@ const Child=(props)=>{
         </div>
     )
 }
+
 export default function Test() {
-    // 将 无样式或者比较丑的组件 Child 放入高阶组件 styled(Child) 中 并且添加一些样式 Child组件中 通过props.className 接收添加的样式
+    // 将 无样式或者要调整样式的组件 Child 放入高阶组件 styled(Child) 中 并且添加一些样式 Child组件中 通过props.className 接收添加的样式
     const StyledChild= styled(Child)`
+        width:100px;
+        color:blue;
         background:${props=>props.bg};
-    `
+    `;
+
     return (
         <div className='app-assembly'>
             <h1>03-styled-components-样式任意化组件-高阶组件</h1>
-            {/* 无样式或者比较丑的组件-通过styled高阶组件改造样式 */}
+            {/* 无样式或者要调整样式的组件-通过styled高阶组件改造样式 */}
             <StyledChild bg={'red'}>
                 {/*  通过-插槽 props.children  将测试的 div 标签 插入 styled高阶组件 生成的组件中*/}
                 <div>测试插槽 是否可插入styled生成的组件中</div>
