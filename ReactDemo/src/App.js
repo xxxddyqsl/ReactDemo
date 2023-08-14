@@ -69,7 +69,10 @@ import ReactReduxD from './demo-(React-Redux)组件通信进阶/04-redux持久�
 
 import AntdUIPCA from './demo-antd-UI组件库/design-PC端/01-antd'
 import AntdUIPCB from './demo-antd-UI组件库/design-PC端/02-antd-UI组件库-Layout布局'
+import AntdUIPCC from './demo-antd-UI组件库/design-PC端/07-antd-UI组件库-树'
+import AntdUIPCD from './demo-antd-UI组件库/design-PC端/09-antd-UI组件库-级联选择'
 
+import AntdUIPCE from './demo-antd-UI组件库/design-PC端/10-antd-UI组件库-select选择'
 import AntdUIMobileA from './demo-antd-UI组件库/mobile-移动端/01-antd'
 import AntdUIMobileB from './demo-antd-UI组件库/mobile-移动端/02-antd-mobile案例'
 
@@ -203,8 +206,13 @@ class app extends React.Component{
                 <ReactReduxB />
                 <ReactReduxC />
                 <ReactReduxD />
+
                 <AntdUIPCA />
                 <AntdUIPCB/>
+                <AntdUIPCC/>
+                <AntdUIPCD/>
+                <AntdUIPCE/>
+
                 <AntdUIMobileA/>
                 
                 <AntdUIMobileB/>
