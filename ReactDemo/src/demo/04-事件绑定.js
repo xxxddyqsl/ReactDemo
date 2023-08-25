@@ -27,11 +27,15 @@ function Example() {
         </div>
     );
 }
-/* React 绑定事件和原生js绑定事件的区别是： React 绑定事件并不会真正的绑定在每一个具体的dom标签上，比较消耗内存 而是采用事件代理的方式 (事件绑在了根节点（标签元素root）类似利用事件捕获 冒泡的机制 找到那个元素真实触发的) */
+/*  面试问题：
+    React 绑定事件和原生js绑定事件的区别是：
+    React 绑定事件并不会真正的绑定在每一个具体的dom标签上，
+    比较消耗内存 而是采用事件代理的方式 (事件绑在了根节点（标签元素root）类似利用事件捕获 冒泡的机制 找到那个元素真实触发的)。
+*/
 
 export default class testClick extends Component {
     constructor(props) {
-        super(props);
+        super(props);//super函数 是继承Test 类的所有成员属性 和方法
          // React.createRef()（react v16 新提出）
         // 通过 constructor 构造函数中创建，this.自定义属性名 = React.createRef()
         // 通过 ref={this.自定义属性名} 绑定
@@ -67,7 +71,7 @@ export default class testClick extends Component {
         console.log('handleClick2', '推荐这种写法，箭头函数this 无问题')
     }
     handleClick4(even, data) {
-        console.log(even, this.myRef.current.value)
+        console.log(even.target, this.myRef.current.value)
         console.log(data);
         this.setState({
             count: this.state.count + 1,
@@ -111,8 +115,8 @@ export default class testClick extends Component {
     回顾：
     this说明： 谁调用 就 指向谁 
     修改 this 指向的三种方式 
-    call()  // 改变this指向 并且自动执行函数
-    apply() // 改变this指向 并且自动执行函数
+    call()  // 改变this指向 并且自动执行函数 如obj1.getname.call(obj2)
+    apply() // 改变this指向 并且自动执行函数 如 obj1.getname.apply(obj2)
     bind() // 改变this指向  不会自动执行函数 并且需要手动执行函数 加小括号执行 （ 如：obj1.getname.bind(obj2)() ）
 */
 var obj1 = {

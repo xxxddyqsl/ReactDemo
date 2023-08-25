@@ -7,12 +7,14 @@ import Navbar from './Subcomponent/Navbar'
   注===> props属性 的讲解 在 './Subcomponent/Navbar' 文件内 可见 记录详解
 */
 export default class TestProps extends Component {
-  render() {
-    // 内部定义一个变量 或者 假设 上面父组件传来的一个对象
-    let obj={
+  state={
+     // 内部定义一个变量 或者 假设 上面父组件传来的一个对象
+    obj:{
       text:'测试导航栏',
       leftShow:true,
     }
+  }
+  render() {
     return (
       <div className='app-assembly'>
         <h1>11-props组件复用性 Navbar </h1>
@@ -32,8 +34,15 @@ export default class TestProps extends Component {
         <div>
           <h2> 测试 </h2>
           {/* 写法2 通过es6的对象简写 如 {..obj}  需要注意的是 obj内的 {text:'', leftShow:''} 两个值text、leftShow 键名 和 传入子组件的属性名是要一样的 */}
-          <Navbar {...obj} />
-
+          <Navbar {...this.state.obj} />
+          <button onClick={()=>{
+            this.setState({
+              obj:{
+                text:'测试导航栏-修改'+!this.state.obj.leftShow,
+                leftShow:!this.state.obj.leftShow,
+              }
+            })
+          }}>修改导航栏</button>
         </div>
       </div>
     )

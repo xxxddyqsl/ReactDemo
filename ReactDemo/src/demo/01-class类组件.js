@@ -11,21 +11,21 @@ import React from "react"
 //         <h1>Hello, world!</h1>
 //     )
 // }
-// class Test {
+// class Test {//es6 类的 class类 写法
 //     constructor(){
-//         this.a='Test类测试'
+//         this.a='Test类测试',//es6 类的 成员属性
 //     }
-//     testA(data){
+//     testA(data){ //es6 类的 成员函数
 //         console.log((data||'')+'testA')
 //     }
 // }
 // // class 类 app 继承（含 内部变量 函数）上方的  Test 类 
 // class app extends Test{
 //     constructor(){
-//         super();  //ES6 要求，子类的构造函数必须执行一次super函数
-//         this.msg='app类输出：'
+//         super();  //ES6 要求，子类的构造函数必须执行一次 super函数 是继承Test 类的所有成员属性 和方法
+//         this.msg='app类输出：' //es6 类的 成员属性
 //     }
-//     testB(){
+//     testB(){ //es6 类的 成员函数
 //         // super在普通方法之中，指向 Test.prototype， 所以super.a 就相当于 Test.prototype.a
 //         console.log('app继承：',super.a);
 //         super.testA(this.msg);

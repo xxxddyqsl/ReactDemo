@@ -29,16 +29,21 @@ function Uncontrolled() {
     return (
         <div style={stylepbj}>
             <h2>登录页-非受控表单</h2>
-            {/* 需要通过defaultValue='设置默认值' 设置初始值，如果通过value='设置默认值' 那将无法修改input的value值并且报错（使用value 通常是在受控组件中使用，如value={this.state.inputVal}） */}
-            {/* defaultValue 是设置一个初始值 之后不会在控制后续的更新，而value是覆盖dom节点中的值 */}
+            {/*
+                React 中 input 设置 默认值
+
+                需要通过defaultValue='设置默认值' 设置初始值，如果通过value='设置默认值' 那将无法修改input的value值并且报错（使用value 通常是在受控组件中使用，如value={this.state.inputVal}）
+                defaultValue 是设置一个初始值 之后不会在控制后续的更新，而value是覆盖dom节点中的值
+            */}
             <input ref={myusername} defaultValue='非受控组件默认值' />
             <button onClick={() => {
+                alert(`非受控组件:无状态 - 无法触发子组件更新`)
                 console.log(myusername.current.value)
             }}>登录</button>
             <button onClick={() => {
                myusername.current.value=''
             }}>重置</button>
-            {/*子组件只有第一次可以就是到值 后续子组件收不到值 （无状态 无法重新渲染更新传入子组件） */}
+            {/*子组件只有第一次可以就是到值 后续没有任何的 state状态更新 子组件收不到值 （无状态 无法重新渲染更新将值再次传入子组件） */}
             <Child myusername={myusername.current&&myusername.current.value}/>
         </div>
     )
@@ -81,8 +86,8 @@ class Child extends Component {
     render(){
         return(
             <div>
-                <div>子组件Child-获取input</div>
-                {this.props.myusername}
+                <div>子组件Child-获取input：{this.props.myusername}</div>
+                
             </div>
         )
     }

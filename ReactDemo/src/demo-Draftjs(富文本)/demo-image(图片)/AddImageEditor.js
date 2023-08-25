@@ -3,8 +3,7 @@ import { convertFromRaw, EditorState, Entity, AtomicBlockUtils } from 'draft-js'
 
 import Editor, { composeDecorators } from '@draft-js-plugins/editor';
 
-import createImagePlugin from '@draft-js-plugins/image';
-
+import createImagePlugin from '@draft-js-plugins/image'
 import createAlignmentPlugin from '@draft-js-plugins/alignment';
 
 import createFocusPlugin from '@draft-js-plugins/focus';

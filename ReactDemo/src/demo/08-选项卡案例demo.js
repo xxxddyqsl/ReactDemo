@@ -72,6 +72,6 @@ export default class testTab extends Component {
     //   点击tab展示内容
     getMainTab = (event) => {
         console.log(event.target)
-        // alert(event.target.innerText)
+        alert(event.target.innerText)
     }
 }

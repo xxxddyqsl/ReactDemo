@@ -3,6 +3,22 @@ import React from 'react'
 // 校验 值类型
 import kerwinPropsType from 'prop-types'
 
+// 函数组件 - 验证 props 值类型
+
+// 函数组件 设置 默认值 如 父组件未传入 bg背景色 值 调用通过defaultProps设置 props属性 的默认值 ，如果父组件传入了bg背景色  父组件传的值覆盖通过defaultProps 默认的值 
+Sidebar.defaultProps = {
+  bg: 'red',
+  w: '200px',
+}
+// 函数组件 设置校验 props属性 类型  使用 Sidebar.propTypes 校验props 接收到的父组件传入的值类型 如props.bg 传入的值类型必须为字符串 否则 传入的值不通过
+//  有利用后期维护
+Sidebar.propTypes = {
+  // 校验 传入 bg 是否是 字符串
+  bg: kerwinPropsType.string,
+  // 校验 传入 position 是否是 对象
+  position: kerwinPropsType.object
+}
+
 export default function Sidebar(props) {
 
   // 通过 ES6解构的方式 取出 props 对象内部的属性
@@ -34,17 +50,6 @@ export default function Sidebar(props) {
       </ul>
     </div>
   )
-}
-// 函数组件 设置 默认值 如 父组件未传入 bg背景色 值 调用通过defaultProps设置 props属性 的默认值 ，如果父组件传入了bg背景色  父组件传的值覆盖通过defaultProps 默认的值 
-Sidebar.defaultProps = {
-  bg: 'red',
-  w: '200px',
-}
-// 函数组件 设置校验 props属性 类型  使用 Sidebar.propTypes 校验props 接收到的父组件传入的值类型 如props.bg 传入的值类型必须为字符串 否则 传入的值不通过
-//  有利用后期维护
-Sidebar.propTypes = {
-  // 校验 传入 bg 是否是 字符串
-  bg: kerwinPropsType.string,
 }
 
 

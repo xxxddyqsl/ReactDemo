@@ -18,9 +18,11 @@ class Navbar extends Component{
         return (
 // 设置 标签 id class名（设置标签的class名需修改为className 否则与react解析时首先会当成功 class类函数组件当然16版本之后 后续解析出不是class类也是可以正常出效果但会有警告 但是16版本之前是报错并且不可正常使用 ） Child子组件接收父组件的值
             <div id='Navbar' className="Navbar-warper" title={this.props.title} >Navbar - {this.props.name} <Child url={this.props.url} ></Child>
-              {/* label 标签上的 for='username'在html中的写法 （点击label标签 自动获取input焦点）  但是存在关键字for 与上方的关键字class 情况一样 效果改写 防止冲突 */}
+                <div style={{color:'red'}}> label 标签上的 for='username'在html中的写法 （点击label标签 自动获取input焦点）  但是存在关键字for 与上方的关键字class 情况一样 效果改写 防止冲突 </div>
                 <label htmlFor='username'>用户名称：</label>
                 <input type='text' id='username'/>
+                {/*  通过-插槽 props.children 可以在Navbar组件内写一些内容  插入 路由组件内 */}
+                {this.props.children}
             </div>
           
         )
@@ -46,7 +48,7 @@ const Tabbar=(props)=>{return (<div>Tabbar -{props.name}</div>)}
 /* 嵌套孙子组件- Child */
 class Child extends Component{
     constructor(props){
-        //ES6 要求，子类的构造函数必须执行一次super函数
+        //ES6 要求，子类的构造函数必须执行一次super函数 super函数 是继承Test 类的所有成员属性 和方法
         super();
         // 在该函数中为 this.state 赋初值
         this.state = {date: new Date()};
@@ -102,11 +104,16 @@ export default class test extends Component {
            <h1> 03-组件嵌套 </h1>
           {/* 03-组件嵌套 */}
           {/* 嵌套子组件-头部  将 {name: '嵌套子组件-选项卡'} 作为 props 传入Navbar class组件 this.props.namef 获取传入组件的参数 */}
-          <Navbar name='嵌套子组件-头部' title='Navbar' url={imglogo} ></Navbar>
+          <Navbar name='嵌套子组件-头部' title='Navbar' url={imglogo} >
+            <div>通过-插槽 props.children 可以将div插入Navbar组件内 </div>
+          </Navbar>
             {/* 嵌套子组件-轮播图 */}
           <Swiper></Swiper>
             {/* 嵌套子组件-选项卡  将 {name: '嵌套子组件-选项卡'} 作为 props 传入Tabbar函数组件  props.namef 获取传入组件的参数*/}
           <Tabbar  name="嵌套子组件-选项卡"></Tabbar>
+          <div style= {{color:'red'}}>
+             {`react 中 大括号{} 能放的就只是表达式 如 +-*/ && || 三目运算 变量 > = < 字符串拼接等等， react不支持 - 不能放 ifelse for 这种是语句就不是表达式了 ， `}
+          </div>
       </div>
     )
   }

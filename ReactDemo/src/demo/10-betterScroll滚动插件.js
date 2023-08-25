@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BetterScroll from 'better-scroll'
+// betterScroll  是一款重点解决移动端（已支持PC） 各种滚动场景需求的开源插件， 纯js实现 无任何依赖- 可以做普通的滚动列表，还可以做轮播图、picker 等等  cnpm install --save better-scroll
 
-// betterScroll  是一款重点解决移动端各种滚动场景需求的开源插件， 纯js实现 无任何依赖- 可以做普通的滚动列表，还可以做轮播图、picker 等等  cnpm install --save better-scroll
 export default class TestBetterScroll extends Component {
   state = {
     list: []
@@ -44,19 +44,26 @@ export default class TestBetterScroll extends Component {
       console.log(this.scroll)
       //监听滚动位置 默认情况下BScroll 是不可以监听滚动位置的，只有在初始化的时候设置了probeType才可以监听
       bScroll.on('scroll', function (position) {
-        console.log(position)
+        // console.log(position)
       })
       bScroll.on('pullingUp', function () {
-        console.log('上拉触底 加载更多');
+        console.log('上拉触底 加载更多',);
         //发送网络请求，请求更多页的数据
-
+        let addData = ['增加数据-开始',11, 12, 13, 14, 15, 16,'增加数据-结束',];
+        this.setState({
+          list:[...this.state.list,...addData]
+        },()=>{
+          // 添加数据 更新完成后 - 调用 refresh() 方法重新计算 否则滚动有问题
+          bScroll.refresh();
+          console.log('调用 refresh() 方法重新计算 否则滚动有问题',this.state.list)
+        })
         //等请求完成，进行数据展示
 
         //调用finishiPullUp()表示本次上拉加载完成，可以进行下次上拉加载更多，不调用这个的话，默认只能由一次上拉加载更多
         setTimeout(function () {
           bScroll.finishPullUp()
         }, 2000)
-      })
+      }.bind(this));//bind(this) 修改 this 指向 否则获取不到 外部的 this.setState , this.state.list
       /*
         把要滚动的内容放在wrapper里面包裹起来，要给最外层的div一个固定高度，设置超出部分隐藏，overflow: hidden;只有当内容超过了最外层div的高度时才会滚动，
         最长用的就是监听滚动位置，上拉加载更多，以及点击事件，特别需要注意的是，点击事件，BetterScroll 默认会阻止浏览器的原生 click 事件。

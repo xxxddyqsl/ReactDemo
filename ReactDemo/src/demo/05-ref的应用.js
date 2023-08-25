@@ -13,13 +13,14 @@ import React, { Component } from 'react'
 class Example extends Component {
   myText = '';
   state = {
-    myText2: ''
+    myText2: '',
+    myText3: '1',
   }
   render() {
     return (
       <div>
         <div>
-        <div> 获取元素方式1： 通过 React.createRef() 的方式  :</div>
+        <div> 获取元素方式1： 通过 React.createRef() 的方式  父组件传入 ref（myRef） 及 传入的函数 (getInpV()) :</div>
           {/* 获取  元素 方式1： 通过 React.createRef() 的方式 */}
           <input type='text' ref={this.props.inpEvt}></input>
           {/* 子调用父组件传入 的回调函数  */}
@@ -43,7 +44,16 @@ class Example extends Component {
             {this.state.myText2}
           </div>
         </div>
+        <br/>
+        <div>
+          <div> 获取元素方式3 : 受控组件 - 双向绑定1</div>
+          {/* 如：input 存在 初始默认值  将默认值设置在state状态myText3中 将状态myText3赋值给input value onChange监听setState修改 myText3状态 触发组件更新 将myText3重新赋值个input value  */}
+          <input type='text'  value={this.state.myText3} onChange={(ele)=>{
+            this.setState({myText3:ele.target.value})
+          }}/>
+          <div>双向绑定：{this.state.myText3}</div>
 
+        </div>
 
       </div>
     )
@@ -52,7 +62,7 @@ class Example extends Component {
 }
 export default class testRef extends Component {
   constructor(props) {
-    super(props)
+    super(props)//super函数 是继承Test 类的所有成员属性 和方法
     // React.createRef()（react v16 新提出）
     // 通过 constructor 构造函数中创建，this.自定义属性名 = React.createRef()
     // 通过 ref={this.自定义属性名} 绑定

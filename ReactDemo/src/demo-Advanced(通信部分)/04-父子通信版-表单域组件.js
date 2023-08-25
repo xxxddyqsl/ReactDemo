@@ -34,7 +34,7 @@ Field.propTypes = {
 // 类组件
 export default class Test extends Component {
     state={
-        username:'',
+        username:localStorage.getItem('username')||'小明',
         password:'',
     }
     render() {

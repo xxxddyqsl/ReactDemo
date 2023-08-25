@@ -1,6 +1,12 @@
-// 导入 react 核心包 （17版本之前必须引入react 核心包否则找不到react报错 17版本之后可不引入）
+/*
+   导入 react 核心包 （17版本之前必须引入react 核心包否则找不到react报错 17版本之后可不引入）
+   只要你写React.js组件 就必须引入 React，因为React 中有一个语法叫jsx，要写jsx就必须引入 React
+*/
 import React from "react"
-// 导入 react-dom 用于支持react操作DOM （18版本之前导入 import ReactDOM  from "react-dom" 即可 18版本 改版需要导入 import ReactDOM  from "react-dom/client" 并18版本后语法也所区别 下方有说明 ）
+/*
+导入 react-dom 用于支持react操作DOM （18版本之前导入 import ReactDOM  from "react-dom" 即可 18版本 改版需要导入 import ReactDOM  from "react-dom/client" 并18版本后语法也所区别 下方有说明 ）
+react-dom 可以 帮我们把 React 组件渲染 到页面上
+*/
 import ReactDOM from "react-dom/client"
 // 导入 jsx 类组件 App.js 且 导入时首字母必须大写 否则下面调用解析 组件 会报错
 import App from './App'
@@ -16,15 +22,28 @@ import { store, persistor} from './demo-(React-Redux)组件通信进阶/redux/co
 // 导入数据持久化 网关 接收 persistor 属性 花括号{}内的 persistor 是( 使用persistStore 数据持久化存储的 store )
 import { PersistGate } from 'redux-persist/integration/react'
 import reportWebVitals from './reportWebVitals';
-// jsx 理解1：js+xml  理解2：是JavaScript的对象 
-// 所以使用 React 和 jsx 需要经过编译的过程 jsx-使用react构造组件，bable进行编译（否则浏览器不识别）->JavaScript的对象->ReactDOM.createRoot(id).render()->DOM元素->插入页面
 
+/*
+jsx 理解1：js+xml  理解2：是JavaScript的对象
+所谓的JSX 其实就是JavaScript 对象， 所以使用 React 和 jsx 需要经过编译的过程 jsx-使用react构造组件，bable进行编译（否则浏览器不识别）->JavaScript的对象->ReactDOM.createRoot(id).render()->DOM元素->插入页面
+
+*/
 //  React 18版本前 语法 
 // ReactDOM.render( <App />, document.getElementById('root'))
 
-// React 18版本 将 ReactDOM.render 替换为 ReactDOM.createRoot 调用方法
+/*
+   React 18版本 将 ReactDOM.render 替换为 ReactDOM.createRoot
+   ReactDOM.createRoot() 提前设置好 渲染 React 组件到 哪个节点
+   把React 组件渲染到 某个提前设置好的节点中，当前为 渲染到 root 节点中
+   D:\project\electron\react-demo\my-app\ReactDemo\public\index.html 文件夹内可见 root html节点
+
+*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+/*
+   root.render() 已经设置好 渲染 React 组件的节点，
+   将要渲染的 React 组件 放入
+*/
 // render()函数说明 把jsx元素渲染到页面中
 // 参数1：jsx（react虚拟元素）
 // 参数2：container（容器：想把元素放到哪个容器中）
@@ -53,8 +72,11 @@ root.render(
 // root.render( <React.StrictMode>   <TestC /> </React.StrictMode>);
 
 
-// 此写法必须引入上方 react 核心包  等价于 上方的想法 createElement 第一个参数 创建什么样的标签 第二个参数 设置标签属性 如id className title等  第三个参数 标签的内容 第四个参数可继续增加子元素
-// 设置标签的class名需修改为className 否则与 函数组件class重名 引起报错
+/*
+   React 加载渲染 React组件 (jsx语法) 原理转换 如下写法
+   此写法必须引入上方 react 核心包  等价于 上方的想法 createElement 第一个参数 创建什么样的标签 第二个参数 设置标签属性 如id className title等  第三个参数 标签的内容 第四个参数可继续增加子元素
+   设置标签的class名需修改为className 否则与 函数组件class重名 引起报错
+*/
 // root.render(
 //     React.createElement(
 //     'div',

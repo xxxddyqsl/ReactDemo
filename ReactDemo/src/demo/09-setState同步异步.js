@@ -11,8 +11,8 @@ export default class Test extends Component {
                 <div>
                     {this.state.count}
                 </div>
-                <button onClick={() => { this.setCountA() }}>计数器A</button>
-                <button onClick={() => { this.setCountB() }}>计数器B</button>
+                <button onClick={() => { this.setCountA() }}>计数器A-同步逻辑中</button>
+                <button onClick={() => { this.setCountB() }}>计数器B-异步逻辑中</button>
             </div>
         )
     }
@@ -23,6 +23,7 @@ export default class Test extends Component {
 
         React 18版本后的新特性-setState：
         setState 不管是处于在异步还是同步逻辑中， 都是 异步更新状态，异步更新真实dom
+
         React 18 带来的优化就是可以在任何情况下进行渲染优化了（异步回调函数，promise，定时器）的回调函数中调用多次的 setState 也会进行合并渲染
         开启这个特性的前提是，在index.js中 将 ReactDOM.render 替换为 ReactDOM.createRoot 调用方式。
 

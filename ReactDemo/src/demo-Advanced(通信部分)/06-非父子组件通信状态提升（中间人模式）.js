@@ -6,6 +6,12 @@ import axios from 'axios'
 （1）状态提升（中间人模式）
       React中的状态提升概括来说，就是将多个组件需要共享的状态提升到它们最近的父组件上
       在父组件上改变这个状态 然后通过 props属性分发给子组件
+
+    解释说明：如 父组件app 内部 有A、B 两个子组件 ，这个时候如果 子组件A 想要子组件B内的一些信息 ，
+    可以通过如下方式：
+    在父组件app 中设置一个状态（如 text）， 父组件app内把这个 text状态传给A组件，并且 在B组件身上 绑定一个 设置text状态的 回调函数 (callback),
+    B组件内部调用 父组件app 传入回调函数 (callback)并且传入信息，父组件app 内的状态text 发生改变 触发 render 更新， 
+    并且父组件app内把这个更新后的text状态再次传给A组件。 而这个 父组件app 就相当于是 中间人
 */
 class FilmItem extends Component {
     render() {
@@ -85,7 +91,7 @@ export default class Test extends Component {
     render() {
         return (
             <div className='app-assembly'>
-                <h1>06-非父子组件通信</h1>
+                <h1>06-非父子组件通信 - 状态提示（中间人模式）</h1>
 
                 <div className='gg-flex-4' style={{ width: '600px', border: '1px solid ', height: '400px', }}>
                     {/* 子组件 左侧列表 */}

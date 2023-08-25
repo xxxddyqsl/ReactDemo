@@ -107,7 +107,7 @@ Test.a = 100;
 */
 
 class TestB {
-    b = 1
-    static b = 100
+    b = 1 //对象 属性 需要new访问 通过 let  TestB=new TestB(); console.log(TestB.b);
+    static b = 100 // 类的静态 属性 不需要new访问   console.log(TestB.b);
 }
 // console.log('TestB 静态属性static 直接访问', TestB.b)

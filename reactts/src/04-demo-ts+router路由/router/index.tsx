@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {HashRouter,Route,Switch,Redirect} from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Cinemas from '../views/Cinema/Cinema'
 /*
     路由安装 - 指定版本为 v5
@@ -21,19 +21,32 @@ import Cinema from '../views/Cinema/Cinema'
 import Center from '../views/Center/Center'
 import Detail from '../views/Detail/Detail'
 import NotFound from '../views/NotFound/NotFound'
-export default class IndexRouter extends Component {
-  render() {
-    return (
-        <Switch>
-            <Route path='/films' component={Films}></Route>
-            <Route path='/cinema' component={Cinema}></Route>
-            <Route path='/center' component={Center}></Route>
-            <Route path='/detail/:myid' component={Detail}></Route>
-            {/* Redirect路由重定向   exact 精确匹配 需配合Switch使用 将Redirect 的from='/'  声明为精确匹配 必须是只有 / 时触发进行 Redirect路由重定向*/}
-            <Redirect from='/' to={'/films'} exact />
-            {/*  Route 路由匹配不到  path属性    前面的 3个Route 路由 和 Redirect路由重定向 都不匹配时才能执行到此处的 路由 显示自定义的404组件 */}
-            <Route component={NotFound}></Route>
-        </Switch>
-    )
+// 模拟 获取token 是否登录 或者 授权
+const isAuth = function isAuth() {
+  let token = localStorage.getItem('token');
+  let is = false;
+  if (token) {
+      is = true;
+  } else {
+      is = false;
   }
+  return is;
 }
+const IndexRouter = (props: any) => {
+  return (
+    <Switch>
+      <Route path='/films' component={Films}></Route>
+      <Route path='/cinema' component={Cinema}></Route>
+      <Route path='/center' component={Center} render={()=>{
+        //  Route  绑定render 路由拦截 - 进入我的页面 校验是否登录 未登录 跳转到登录页
+        return ( isAuth() ? <Center/> : <Redirect to={'/login'} ></Redirect>)
+      }}></Route>
+      <Route path='/detail/:myid' component={Detail}></Route>
+      {/* Redirect路由重定向   exact 精确匹配 需配合Switch使用 将Redirect 的from='/'  声明为精确匹配 必须是只有 / 时触发进行 Redirect路由重定向*/}
+      <Redirect from='/' to={'/films'} exact />
+      {/*  Route 路由匹配不到  path属性    前面的 3个Route 路由 和 Redirect路由重定向 都不匹配时才能执行到此处的 路由 显示自定义的404组件 */}
+      <Route component={NotFound}></Route>
+    </Switch>
+  )
+}
+export default IndexRouter

@@ -77,6 +77,7 @@ class Field extends Component {
 }
 // 类组件
 export default class Test extends Component {
+    //  React.createRef(); - ref 绑定在子组件身上 可以获取 子组件的对象 包含子组件的 state 状态 组件内的函数
     username = React.createRef();
     password = React.createRef();
     render() {

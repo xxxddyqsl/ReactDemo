@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+// 引入 滚动插件
 import BetterScroll from 'better-scroll'
 export default class tabHome extends Component {
     // 页面 地址 https://m.maizuo.com/v5/#/films/nowPlaying 接口地址'https://m.maizuo.com/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=781038'
