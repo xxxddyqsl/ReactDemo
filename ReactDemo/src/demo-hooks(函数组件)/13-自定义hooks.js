@@ -6,6 +6,8 @@ import axios from 'axios';
 
     自定义 hooks 理念 ：复用js逻辑 - 抽出做成一个单独的函数 结构更加清晰 并不在于ui的复用
 
+    自定义的hooks： 仅仅只能将 逻辑代码抽取出来 ，而 UI（如 return (<div></div>) ）无法抽取出来
+
     注意：  自定义 hooks 命名必须以 “ use ” 开头，这个约定非常重要，不遵循的话，由于无法判断某个函数是否包含到
     其内部 Hook 的调用，React 将无法自动检查你的 Hook 是否违反了Hook的规则 
     必须return 返回一个对象 通过es6 结构的方式取出 如 const { CinemaList } = useCinemaList();
@@ -99,7 +101,7 @@ export default function Test() {
                     {
 
                         // 监听 input 受控 修改search状态  状态改变触发组件更新 组件执行内部函数 再次执行 getCinemaList记忆函数 进行计算过滤
-                        getCinemaList().map((item, index) => {
+                        getCinemaList().length>0?getCinemaList().map((item, index) => {
                             return (<li className='main-tabs-item gg-flex-4' key={item.cinemaId}>
                                 {/* <img className='main-tabs-item-img' src={item.logoUrl} alt='' title={item.name} /> */}
                                 <div className='main-tabs-item-right  gg-flex-4  gg-flex-2'>
@@ -117,7 +119,7 @@ export default function Test() {
 
                                 </div>
                             </li>)
-                        })
+                        }): <h3 style={{color:'red',textAlign:'center'}}>未查询到相关数据</h3>
                     }
                 </ul>
 

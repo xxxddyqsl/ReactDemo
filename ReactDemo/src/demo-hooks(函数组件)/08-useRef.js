@@ -22,6 +22,7 @@ export default function Test() {
                 console.log(inpRef.current.value);
                 // 清空 input 框
                 inpRef.current.value='';
+                console.log('使用 useRef 可以保存临时变量 + 使用useState 修改状态触发 但更新重新渲染 ，myCount.current==>', myCount.current)
             }
             }>增加</button>
             <button onClick={()=>{
@@ -29,8 +30,8 @@ export default function Test() {
                 // setCount(Count+1);
                 // 使用useRef仅只能保存临时变量 无法更新组件 可见打印
                 myCount.current++;
-                console.log(myCount.current)
-                }}>测试使用useRef 保存临时变量count={Count}-myCount= {myCount.current}</button>
+                console.log('只是使用 useRef 可以保存临时变量 但无法更新重新渲染 ，myCount.current==>',myCount.current)
+                }}>测试使用useRef 可以保存临时变量（使用var声明临时变量 组件更新时会被重置 无法保存值），但无法更新重新渲染   count={Count}-myCount= {myCount.current}</button>
             <ul>
                 {
                 list.map((item, index) => {  return (<li key={index}>{item}</li>)})

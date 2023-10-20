@@ -10,10 +10,10 @@ const reducer = (prevState, action) => {
     //深度拷贝 es6 展开对象 赋值给临时变量 避免直接操作状态 注意：只有一级属性为深拷贝，二级属性复杂的对象后就是浅拷贝
     let newState = { ...prevState }
     switch (action.type) {
-        case 'ajax':
+        case 'change-fileList':
             newState.FilmList = action.value;
             return newState;
-        case "Info":
+        case "change-Info":
             newState.FilmInfo = action.value;
             return newState;
 
@@ -47,7 +47,7 @@ export default function Test() {
             url: url,
         }).then((res) => {
             if (res.data && res.data.status === 0) {
-                dispatch({ type: 'ajax', value: res.data.data.films })
+                dispatch({ type: 'change-fileList', value: res.data.data.films })
             }
         }).catch(err => console.log(err))
     }, [])
@@ -103,7 +103,7 @@ function FilmItem(props) {
             // 值改变 但无法更新组件
             // value.title=props.item.name;
             //  调用 供应商GlobalContext.Provider提供的dispatch 修改父组件的状态 并状态改变触发更新渲染
-            value.dispatch({ type: 'Info', value: { title: props.item.name, content: props.item.synopsis } })
+            value.dispatch({ type: 'change-Info', value: { title: props.item.name, content: props.item.synopsis } })
             // console.log(props.item.name, props.item.synopsis)
         }}>
             <img className='main-tabs-item-img' src={props.item.poster} alt={props.item.name} />

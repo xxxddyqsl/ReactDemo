@@ -106,8 +106,10 @@ const isAuth = function isAuth() {
 export default function indexRouter(props) {
     return (
         <div>
-            {/* BrowserRouter   路由中没有# 如localhost:3000/films/nowplaying/ state 参数刷新不会丢失 是真正向后端 发送请求要页面 后端没有对应的路径处理逻辑 就会404
-                HashRouter 路由会默认有个# 如localhost:3000/#/films/nowplaying/  state 参数刷新会丢失
+            {/* 1：BrowserRouter ：
+                    路由中没有# 如localhost:3000/films/nowplaying/ state 参数刷新不会丢失 是真正向后端 发送请求要页面 后端没有对应的路径处理逻辑 就会404
+                2：HashRouter ： 
+                    路由会默认有个# 如localhost:3000/#/films/nowplaying/  state 参数刷新会丢失
              */}
             {/* <BrowserRouter> */}
             <HashRouter>
@@ -152,6 +154,8 @@ export default function indexRouter(props) {
                         // 方式2： 在 <Center/> 组件内导出时 通过 withRouter(center)导出   withRouter 可以帮助跨级 传输  props及history路由这些值
                         return isAuth() ? <Center/> : <Redirect to={'/login'} />
                     }}></Route>
+                    {/* render={()=><Login/>}  等价于  component={Login}*/}
+                    {/* <Route path={'/login'} render={()=><Login/>}></Route> */}
                     <Route path={'/login'} component={Login}></Route>
                     {/* /detail/:myid动态路由格式 :myid 占位符 :冒号固定写法表示模糊的一个值 （myid传入的参数 如id） 如传入的 路径为/detail/88912 这个为动态路由 打印 props 可接收获取的传入的参数 如果不是动态路由的格式没有占位符 props.match.params 内参数会是空的    */}
                     {/* 路由传参方式1：   params参数 - /detail/:myid 动态路由传参 */}

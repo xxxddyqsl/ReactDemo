@@ -19,10 +19,39 @@ export default class Test extends Component {
         },1000)
        
     }
+    // 生命周期 - dom更新完成 执行多次
+    componentDidUpdate(){
+        // 数据异步 - 初始化Swiper 轮播 方式2
+        this.initSwiper();
+       console.log('componentDidUpdate-dom更新完成')
+   }
+   // 初始化Swiper 轮播
+   initSwiper(){
+        // 初始化Swiper 轮播
+        new Swiper('.swiper', {
+           // direction: 'vertical', // 垂直切换选项
+           loop: true, // 循环模式选项
+           // 如果想要 分页器
+           pagination: {
+               el: '.swiper-pagination',
+           },
+           // 如果需要前进后退按钮
+           navigation: {
+               nextEl: '.swiper-button-next',
+               prevEl: '.swiper-button-prev',
+           },
+
+           // 如果需要滚动条
+           scrollbar: {
+               el: '.swiper-scrollbar',
+           },
+       })
+   }
     render() {
         return (
             <div className='app-assembly'>
                 <h1 id='Lifecycle'>07-swiper轮播图-异步</h1>
+                {/* dom 结构 ：class名 ： className='swiper'  className='swiper-wrapper' className='swiper-slide' 必须存在  */}
                 <div className='swiper' style={{ width: '400px', height: '200px', background: 'antiquewhite' }}>
                     <div className='swiper-wrapper'>
                         {this.state.list.map((item, index) => <div key={index} className='swiper-slide'>{item}</div>)}
@@ -38,32 +67,5 @@ export default class Test extends Component {
             </div>
         )
     }
-    // 生命周期 - dom更新完成 执行多次
-    componentDidUpdate(){
-         // 数据异步 - 初始化Swiper 轮播 方式2
-         this.initSwiper();
-        console.log('componentDidUpdate-dom更新完成')
-    }
-    // 初始化Swiper 轮播
-    initSwiper(){
-         // 初始化Swiper 轮播
-         new Swiper('.swiper', {
-            // direction: 'vertical', // 垂直切换选项
-            loop: true, // 循环模式选项
-            // 如果想要 分页器
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            // 如果需要前进后退按钮
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-            // 如果需要滚动条
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
-        })
-    }
+    
 }

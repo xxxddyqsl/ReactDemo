@@ -1,21 +1,29 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import ReactTsA from "./01-dom-ts基础/01-React+Ts介绍安装"
-import ReactTsB from "./01-dom-ts基础/02-Ts基础语法-基本类型"
-import ReactTsC from "./01-dom-ts基础/03-Ts基础语法-数组"
-import ReactTsD from "./01-dom-ts基础/04-Ts基础语法-对象-接口"
-import ReactTsE from "./01-dom-ts基础/05-Ts基础语法-函数"
-import ReactTsF from "./01-dom-ts基础/06-Ts基础语法-类"
-import ReactTsG from "./01-dom-ts基础/07-Ts基础语法-类+接口"
-import ReactTsClassA from "./02-dom-ts+react-类组件应用/01-ts+react-类组件-state状态简单应用"
-import ReactTsClassB from "./02-dom-ts+react-类组件应用/02-ts+react-类组件-todolist-state状态案例"
-import ReactTsClassC from "./02-dom-ts+react-类组件应用/03-ts+react-类组件-props属性简单应用"
-import ReactTsClassD from "./02-dom-ts+react-类组件应用/04-ts+react-类组件-抽屉-props属性案例"
-import ReactTsFunA from "./03-dom-ts+react-函数组件应用/01-ts+react-函数组件-state状态简单应用"
-import ReactTsFunB from "./03-dom-ts+react-函数组件应用/02-ts+react-函数组件-todolist-state状态案例"
-import ReactTsFunC from "./03-dom-ts+react-函数组件应用/03-ts+react-函数组件-props属性简单应用"
-import ReactTsFunD from "./03-dom-ts+react-函数组件应用/04-ts+react-函数组件-抽屉-props属性案例"
+// import ReactTsA from "./01-dom-ts基础/01-React+Ts介绍安装"
+// import ReactTsB from "./01-dom-ts基础/02-Ts基础语法-基本类型"
+// import ReactTsC from "./01-dom-ts基础/03-Ts基础语法-数组"
+// import ReactTsD from "./01-dom-ts基础/04-Ts基础语法-对象-接口"
+// import ReactTsE from "./01-dom-ts基础/05-Ts基础语法-函数"
+// import ReactTsF from "./01-dom-ts基础/06-Ts基础语法-类"
+// import ReactTsG from "./01-dom-ts基础/07-Ts基础语法-类+接口"
+// import ReactTsClassA from "./02-dom-ts+react-类组件应用/01-ts+react-类组件-state状态简单应用"
+// import ReactTsClassB from "./02-dom-ts+react-类组件应用/02-ts+react-类组件-todolist-state状态案例"
+// import ReactTsClassC from "./02-dom-ts+react-类组件应用/03-ts+react-类组件-props属性简单应用"
+// import ReactTsClassD from "./02-dom-ts+react-类组件应用/04-ts+react-类组件-抽屉-props属性案例"
+// import ReactTsFunA from "./03-dom-ts+react-函数组件应用/01-ts+react-函数组件-state状态简单应用"
+// import ReactTsFunB from "./03-dom-ts+react-函数组件应用/02-ts+react-函数组件-todolist-state状态案例"
+// import ReactTsFunC from "./03-dom-ts+react-函数组件应用/03-ts+react-函数组件-props属性简单应用"
+// import ReactTsFunD from "./03-dom-ts+react-函数组件应用/04-ts+react-函数组件-抽屉-props属性案例"
+// react+ts路由-demo文件独立入口
+// import ReactTsRouter1 from './04-demo-ts+router路由/App';
+import ReactTsRouter1 from './04-demo-ts+router路由-尝试封装-01/App';
+// react+ts+redux状态管理-demo文件独立入口
+// import ReactTsRedux from './05-demo-ts+redux状态管理/App';
+
+// react+ts+antdMoble组件库 文件独立入口
+// import ReactTsAntdMoble from './06-demo-ts+antdMoble组件库/App';
 function App() {
   return (
     // <div className="App">
@@ -36,7 +44,7 @@ function App() {
     // </div>
 
     <div>
-      <ReactTsA></ReactTsA>
+      {/* <ReactTsA></ReactTsA>
       <ReactTsB />
       <ReactTsC />
       <ReactTsD />
@@ -52,6 +60,10 @@ function App() {
       <ReactTsFunB />
       <ReactTsFunC />
       <ReactTsFunD />
+      */}
+       <ReactTsRouter1 />  
+      {/* <ReactTsRedux />
+      <ReactTsAntdMoble /> */}
     </div>
   );
 }

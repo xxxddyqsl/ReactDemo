@@ -48,7 +48,7 @@ export default class Test extends Component {
                       return (
                         <SwiperItem key={item.bannerId}>
                             {/* //通过插槽 封装 可任意定义 轮播图片 或者 文字 */}
-                            <img src={item.imgUrl} style={ {width:'100%',height:'auto'} } alt='' title={item.name}></img>
+                            <img src={item.imgUrl} style={ {width:'100%',height:'auto'} } alt={item.name} title={item.name}></img>
                         </SwiperItem>
                       )
                     })}

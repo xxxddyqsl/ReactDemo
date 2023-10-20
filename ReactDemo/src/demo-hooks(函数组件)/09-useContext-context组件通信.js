@@ -67,12 +67,13 @@ export default function Test() {
 
 // 子组件 - 左侧列表
 function FilmItem(props) {
-    /*
+    /*  
+        方式1：
         通过 useContext(GlobalContext)钩子函数 传入参数 供应商临时变量-GlobalContext 可以直接获取到 供应商通过的服务 如当前（GlobalContext.Provider 上的唯一参数 value ）
         就不需要 像 class 类组件 一样 通过<GlobalContext.Consumer> 声明此组件为消费者通过回调函数来获取 供应商提供的服务（参数value）
         固定语法  <GlobalContext.Consumer>  {(value)=>{console.log(value)}}  </GlobalContext.Consumer> 如下
     */
-    const value = useContext(GlobalContext);
+    const value = useContext(GlobalContext); // 直接 获取 供应商（GlobalContext.Provider） 提供的 公共服务对象 ，也可以使用（方式2中） GlobalContext.Consumer 注册为 消费者 案例在
     return (
         <li className='main-tabs-item ' onClick={() => {
             // 值改变 但无法更新组件
@@ -90,6 +91,7 @@ function FilmItem(props) {
         </li>
 
         /*
+            方式2：
            GlobalContext.Consumer相当于声明此组件为消费者 通过回调函数来获取 供应商提供的服务（参数value）固定语法
         */
         // <GlobalContext.Consumer>

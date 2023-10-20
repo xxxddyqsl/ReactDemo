@@ -1,12 +1,30 @@
 import React,{useState,useCallback, useMemo} from 'react'
 /*
-    useCallback-记忆函数-优化性能
+    useCallback-记忆函数-优化性能 （意义在于 与useCallback函数 注入的依赖没有关系的其他状态发生改变 重新渲染时 会使用缓存 而不是再一次重新加载创建函数 ）
+
     防止因为组件重新渲染，导致方法被重新创建，起到缓存的作用，只有第二个参数变化了，才重新声明一次
 
     // useCallback 第一个参数 要执行的回调函数 ，第二个参数 重新声明的依赖 数组形式
     const handleChange =useCallback(() => {
       console.log(name)
     },[name])
+    useCallback 第二个参数  
+    如果传入依赖 如果依赖发生改变时 会重新获取 值 并且将函数重新缓存 
+    没有传入 依赖 是空数组 [] 那useCallback 函数永远是拿到一开始缓存的值 而缓存的值如果是空字符串 如：
+    const [text,setText] = useState('')
+    const [textB,setTextB] = useState('')
+
+    const handleclick= useCallback(() => {
+      console.log(text)
+      setText( '测试text值')
+    },[])
+     const handleadd =useCallback(() => {
+      console.log(text)
+      setTextB('获取text 缓存的值:'+text)
+     textB= '获取text 缓存的值:'+'' (空的text) 没有传入 依赖 是空数组 [] 那useCallback 函数永远是拿到一开始缓存的值 因为 text 永远是拿到一开始缓存的值 空字符串
+    },[])
+setTextB  
+
 
     只有 name 改变后，这个函数才会重新声明一次
     如果传入空数组，那么就是第一次创建就被缓存，如果name后期改变了，拿到的还是老的name ，永远不会被重新声明 拿到新的name
@@ -18,7 +36,8 @@ export default function Test() {
     const [count,setCount]=useState(0);
     return (
         <div className='app-assembly'>
-            <h1>06-hooks-useCallback-记忆函数</h1>
+            <h1>06-hooks-useCallback-记忆函数（缓存函数）- 优化性能</h1>
+            <h1> useCallback-记忆函数-优化性能 （意义在于 与useCallback函数 注入的依赖没有关系的其他状态发生改变 重新渲染时 会使用缓存 而不是再一次重新加载创建函数 ）只有依赖发生改变，才重新加载创建函数</h1>
             <div>{count}</div>
             <button onClick={()=>{setCount(count+1)}}>add</button>
             <Todolist></Todolist>
@@ -64,6 +83,7 @@ function Todolist() {
     return (
       <div>
         <h3>改造-todolist案例循环渲染</h3>
+       
         <input value={text} onChange={handleChange} />
         <button onClick={() => {
           onAdd()

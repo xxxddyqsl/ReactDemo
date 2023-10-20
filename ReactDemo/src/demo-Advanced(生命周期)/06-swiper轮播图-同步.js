@@ -31,9 +31,13 @@ export default class Test extends Component {
         return (
             <div className='app-assembly'>
                 <h1 id='Lifecycle'>06-swiper轮播图</h1>
+                {/* dom 结构 ：class名 ： className='swiper'  className='swiper-wrapper' className='swiper-slide' 必须存在  */}
                 <div className='swiper' style={{ width: '400px', height: '200px', background: 'antiquewhite' }}>
                     <div className='swiper-wrapper'>
-                        {this.state.list.map((item, index) => <div key={index} className='swiper-slide'>{item}</div>)}
+                        {this.state.list.map((item, index) => <div key={index} className='swiper-slide'>
+                        {item}
+                        {/* 可以放 div img 等等你需要展示的内容 */}
+                        </div>)}
                     </div>
                     {/* 轮播图 - 底部 分页器 */}
                     <div className='swiper-pagination'></div>

@@ -33,7 +33,7 @@ root.render(
    // React 18 componentDidMount重复执行两次的解决方案
    // <React.StrictMode> </React.StrictMode> 为开启 react 严格模式 都是会引起渲染完成后的生命周期componentDidMount 执行两次 需注释
    //<React.StrictMode>
-   // Provider 供应商组件 必须接收一个 store属性（必写） 花括号{}内的store 来自 自己封装导出的 store.js Redux核心库
+   // Provider 供应商组件 必须接收一个 store属性（必写） 花括号{}内的store 来自 自己封装导出的 './demo-(Mobx-react)-通信状态管理/mobx/store.js Redux核心库
    <Provider store={store}>
       <App />
    </Provider>

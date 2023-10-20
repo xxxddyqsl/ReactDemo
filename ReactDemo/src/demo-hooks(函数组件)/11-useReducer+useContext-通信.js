@@ -1,7 +1,7 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect,useContext } from 'react'
 import ChildA from './Subcomponent/ChildA'
 import ChildB from './Subcomponent/ChildB'
-import ChildC from './Subcomponent/ChildC'
+// import ChildC from './Subcomponent/ChildC'
 /*
     useReducer() + React.createContext() 理论 概念解析
 */
@@ -69,4 +69,14 @@ export default function Test() {
             </div>
         </GlobalContext.Provider>
     )
+}
+function ChildC() {
+    const value = useContext(GlobalContext)
+  return (
+    <div style={{border:'1px solid red',padding:'4px 10px'}}>
+         { console.log('ChildC-组件')}
+         <h4>ChildC</h4>
+         {value.state.stateChildC}
+    </div>
+  )
 }

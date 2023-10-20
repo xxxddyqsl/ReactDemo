@@ -8,96 +8,96 @@ import TestA from './demo/01-class类组件'
 // 导入 jsx 类组件  使用 * as 设置别名 *表示所有 下方使用时需要 <TestB.appb></TestB.appb>
 // import * as TestB from './demo/02-函数组件' 
 // 导入 appb 使用 as 设置别名 为TestB
-import {appb as TestB} from './demo/02-函数组件'
-import  TestC from './demo/03-组件嵌套'
-import  TestD from './demo/04-事件绑定'
-import  TestE from './demo/05-ref的应用'
-import  TestF from './demo/06-state+setState类状态的更新应用'
-import  TestG from './demo/07-todolist案例循环渲染'
-import  TestH from './demo/08-选项卡案例demo'
-import  TestI from './demo/09-setState同步异步'
-import  TestJ from './demo/10-betterScroll滚动插件'
-import  TestK from './demo/11-类组件属性props组件复用性'
-import  TestL from './demo/12-函数组件属性props组件复用性'
-import  TestN from './demo/13-属性(props)vs状态(state)'
-import  TestO from './demo/14-受控组件和非受控组件'
-import  AdvancedA from './demo-Advanced(通信部分)/01-父子通信-抽屉显示隐藏效果'
-import  AdvancedB from './demo-Advanced(通信部分)/02-非受控选项卡功能案例'
-import  AdvancedC from './demo-Advanced(通信部分)/03-受控选项卡功能案例'
-import  AdvancedD from './demo-Advanced(通信部分)/04-父子通信版-表单域组件'
-import  AdvancedE from './demo-Advanced(通信部分)/05-ref版-表单域组件'
-import  AdvancedF from './demo-Advanced(通信部分)/06-非父子组件通信状态提升（中间人模式）'
-import  AdvancedG from './demo-Advanced(通信部分)/07-非父子组件通信订阅发布模式'
-import  AdvancedH from './demo-Advanced(通信部分)/08-非父子组件通信context'
-import  AdvancedI from './demo-Advanced(通信部分)/09-插槽'
-import  AdvancedJ from './demo-Advanced(通信部分)/10-插槽-抽屉显示隐藏效果'
-import  LifecycleA from './demo-Advanced(生命周期)/01-生命周期'
-import  LifecycleB from './demo-Advanced(生命周期)/02-生命周期-更新阶段性能优化-1'
-import  LifecycleC from './demo-Advanced(生命周期)/03-生命周期-销毁阶段'
-import  LifecycleD from './demo-Advanced(生命周期)/04-生命周期-getSnapshotBeforeUpdate'
-import  LifecycleE from './demo-Advanced(生命周期)/05-生命周期-更新阶段性能优化-2'
-import  LifecycleF from './demo-Advanced(生命周期)/06-swiper轮播图-同步'
-import  LifecycleG from './demo-Advanced(生命周期)/07-swiper轮播图-异步'
-import  LifecycleH from './demo-Advanced(生命周期)/08-swiper轮播图-组件+插槽'
-import  HooksA from './demo-hooks(函数组件)/01-useState'
-import  HooksB from './demo-hooks(函数组件)/02-useEffect'
-import  HooksC from './demo-hooks(函数组件)/03-useEffect-注入依赖案例'
-import  HooksD from './demo-hooks(函数组件)/04-useEffect-销毁案例'
-import  HooksE from './demo-hooks(函数组件)/05-useEffect-useLayoutEffect区别与使用时机'
-import  HooksF from './demo-hooks(函数组件)/06-useCallback-记忆函数'
-import  HooksG from './demo-hooks(函数组件)/07-useMemo'
-import  HooksH from './demo-hooks(函数组件)/08-useRef'
-import  HooksI from './demo-hooks(函数组件)/09-useContext-context组件通信'
-import  HooksJ from './demo-hooks(函数组件)/10-useReducer-父子通信'
-import  HooksK from './demo-hooks(函数组件)/11-useReducer+useContext-通信'
-import  HooksL from './demo-hooks(函数组件)/12-useReducer+useContext-通信案例'
-import  HooksN from './demo-hooks(函数组件)/13-自定义hooks'
-import  RouteA from './demo-路由/01-route-v5介绍'
-import  RouteB from './demo-路由/02-route-v5-路由封装成组件'
-import  RouteC from './demo-路由/03-route-v5-声明式导航与编程式导航'
-import  ReverseProxyA from './demo-反向代理/01-反向代理'
-import CssModuleA from './demo-css文件局部隔离/index'
-import ReduxA from './demo-Flux与Redux(组件通信进阶)/01-Flux及Redux介绍'
-import ReduxB from './demo-Flux与Redux(组件通信进阶)/02-Redux案例'
-import ReduxC from './demo-Flux与Redux(组件通信进阶)/03-Redux扩展-combineReducers'
+// import {appb as TestB} from './demo/02-函数组件'
+// import  TestC from './demo/03-组件嵌套'
+// import  TestD from './demo/04-事件绑定'
+// import  TestE from './demo/05-ref的应用'
+// import  TestF from './demo/06-state+setState类状态的更新应用'
+// import  TestG from './demo/07-todolist案例循环渲染'
+// import  TestH from './demo/08-选项卡案例demo'
+// import  TestI from './demo/09-setState同步异步'
+// import  TestJ from './demo/10-betterScroll滚动插件'
+// import  TestK from './demo/11-类组件属性props组件复用性'
+// import  TestL from './demo/12-函数组件属性props组件复用性'
+// import  TestN from './demo/13-属性(props)vs状态(state)'
+// import  TestO from './demo/14-受控组件和非受控组件'
+// import  AdvancedA from './demo-Advanced(通信部分)/01-父子通信-抽屉显示隐藏效果'
+// import  AdvancedB from './demo-Advanced(通信部分)/02-非受控选项卡功能案例'
+// import  AdvancedC from './demo-Advanced(通信部分)/03-受控选项卡功能案例'
+// import  AdvancedD from './demo-Advanced(通信部分)/04-父子通信版-表单域组件'
+// import  AdvancedE from './demo-Advanced(通信部分)/05-ref版-表单域组件'
+// import  AdvancedF from './demo-Advanced(通信部分)/06-非父子组件通信状态提升（中间人模式）'
+// import  AdvancedG from './demo-Advanced(通信部分)/07-非父子组件通信订阅发布模式'
+// import  AdvancedH from './demo-Advanced(通信部分)/08-非父子组件通信context'
+// import  AdvancedI from './demo-Advanced(通信部分)/09-插槽'
+// import  AdvancedJ from './demo-Advanced(通信部分)/10-插槽-抽屉显示隐藏效果'
+// import  LifecycleA from './demo-Advanced(生命周期)/01-生命周期'
+// import  LifecycleB from './demo-Advanced(生命周期)/02-生命周期-更新阶段性能优化-1'
+// import  LifecycleC from './demo-Advanced(生命周期)/03-生命周期-销毁阶段'
+// import  LifecycleD from './demo-Advanced(生命周期)/04-生命周期-getSnapshotBeforeUpdate'
+// import  LifecycleE from './demo-Advanced(生命周期)/05-生命周期-更新阶段性能优化-2'
+// import  LifecycleF from './demo-Advanced(生命周期)/06-swiper轮播图-同步'
+// import  LifecycleG from './demo-Advanced(生命周期)/07-swiper轮播图-异步'
+// import  LifecycleH from './demo-Advanced(生命周期)/08-swiper轮播图-组件+插槽'
+// import  HooksA from './demo-hooks(函数组件)/01-useState'
+// import  HooksB from './demo-hooks(函数组件)/02-useEffect'
+// import  HooksC from './demo-hooks(函数组件)/03-useEffect-注入依赖案例'
+// import  HooksD from './demo-hooks(函数组件)/04-useEffect-销毁案例'
+// import  HooksE from './demo-hooks(函数组件)/05-useEffect-useLayoutEffect区别与使用时机'
+// import  HooksF from './demo-hooks(函数组件)/06-useCallback-记忆函数'
+// import  HooksG from './demo-hooks(函数组件)/07-useMemo'
+// import  HooksH from './demo-hooks(函数组件)/08-useRef'
+// import  HooksI from './demo-hooks(函数组件)/09-useContext-context组件通信'
+// import  HooksJ from './demo-hooks(函数组件)/10-useReducer-父子通信'
+// import  HooksK from './demo-hooks(函数组件)/11-useReducer+useContext-通信'
+// import  HooksL from './demo-hooks(函数组件)/12-useReducer+useContext-通信案例'
+// import  HooksN from './demo-hooks(函数组件)/13-自定义hooks'
+// import  RouteA from './demo-路由/01-route-v5介绍'
+// import  RouteB from './demo-路由/02-route-v5-路由封装成组件'
+// import  RouteC from './demo-路由/03-route-v5-声明式导航与编程式导航'
+// import  ReverseProxyA from './demo-反向代理/01-反向代理'
+// import CssModuleA from './demo-css文件局部隔离/index'
+// import ReduxA from './demo-Flux与Redux(组件通信进阶)/01-Flux及Redux介绍'
+// import ReduxB from './demo-Flux与Redux(组件通信进阶)/02-Redux案例'
+// import ReduxC from './demo-Flux与Redux(组件通信进阶)/03-Redux扩展-combineReducers'
+import ReduxD from './demo-Redux(组件通信进阶)-02-复习'
 
+// import ReactReduxA from './demo-(React-Redux)组件通信进阶/01-(React-Redux)概念介绍'
+// import ReactReduxB from './demo-(React-Redux)组件通信进阶/02-(React-Redux)案例'
+// import ReactReduxC from './demo-(React-Redux)组件通信进阶/03-(React-Redux)原理+组件封装高阶函数'
+// import ReactReduxD from './demo-(React-Redux)组件通信进阶/04-redux持久化'
 
-import ReactReduxA from './demo-(React-Redux)组件通信进阶/01-(React-Redux)概念介绍'
-import ReactReduxB from './demo-(React-Redux)组件通信进阶/02-(React-Redux)案例'
-import ReactReduxC from './demo-(React-Redux)组件通信进阶/03-(React-Redux)原理+组件封装高阶函数'
-import ReactReduxD from './demo-(React-Redux)组件通信进阶/04-redux持久化'
+// import AntdUIPCA from './demo-antd-UI组件库/design-PC端/01-antd'
+// import AntdUIPCB from './demo-antd-UI组件库/design-PC端/02-antd-UI组件库-Layout布局'
+// import AntdUIPCC from './demo-antd-UI组件库/design-PC端/07-antd-UI组件库-树'
+// import AntdUIPCD from './demo-antd-UI组件库/design-PC端/09-antd-UI组件库-级联选择'
 
-import AntdUIPCA from './demo-antd-UI组件库/design-PC端/01-antd'
-import AntdUIPCB from './demo-antd-UI组件库/design-PC端/02-antd-UI组件库-Layout布局'
-import AntdUIPCC from './demo-antd-UI组件库/design-PC端/07-antd-UI组件库-树'
-import AntdUIPCD from './demo-antd-UI组件库/design-PC端/09-antd-UI组件库-级联选择'
-
-import AntdUIPCE from './demo-antd-UI组件库/design-PC端/10-antd-UI组件库-select选择'
+// import AntdUIPCE from './demo-antd-UI组件库/design-PC端/10-antd-UI组件库-select选择'
 import AntdUIMobileA from './demo-antd-UI组件库/mobile-移动端/01-antd'
 import AntdUIMobileB from './demo-antd-UI组件库/mobile-移动端/02-antd-mobile案例'
 
-import ImmutableA from './demo-Immutable-深度或浅拷贝库/01-immutable-安装介绍'
-import ImmutableB from './demo-Immutable-深度或浅拷贝库/02-immutable-基础-map'
-import ImmutableC from './demo-Immutable-深度或浅拷贝库/03-immutable-基础-List'
-import ImmutableD from './demo-Immutable-深度或浅拷贝库/04-immutable-进阶-复杂数据'
-import ImmutableE from './demo-Immutable-深度或浅拷贝库/05-immutable-进阶-fromJS处理复杂数据'
+// import ImmutableA from './demo-Immutable-深度或浅拷贝库/01-immutable-安装介绍'
+// import ImmutableB from './demo-Immutable-深度或浅拷贝库/02-immutable-基础-map'
+// import ImmutableC from './demo-Immutable-深度或浅拷贝库/03-immutable-基础-List'
+// import ImmutableD from './demo-Immutable-深度或浅拷贝库/04-immutable-进阶-复杂数据'
+// import ImmutableE from './demo-Immutable-深度或浅拷贝库/05-immutable-进阶-fromJS处理复杂数据'
 
-import MobxA from './demo-Mobx-通信状态管理/01-Mobx安装介绍'
-import MobxB from './demo-Mobx-通信状态管理/02-Mobx使用'
-import MobxC from './demo-Mobx-通信状态管理/03-Mobx-替代redux案例'
-import MobxReactA from './demo-(Mobx-react)-通信状态管理/01-Mobx-react安装介绍'
+// import MobxA from './demo-Mobx-通信状态管理/01-Mobx安装介绍'
+// import MobxB from './demo-Mobx-通信状态管理/02-Mobx使用'
+// import MobxC from './demo-Mobx-通信状态管理/03-Mobx-替代redux案例'
+// import MobxReactA from './demo-(Mobx-react)-通信状态管理/01-Mobx-react安装介绍'
 
-import TsA from './demo-TS/01-Ts介绍'
-import StyledComponentsA from './demo-styled-components/01-styled-components-安装介绍'
-import StyledComponentsB from './demo-styled-components/02-styled-components-生成组件透传props属性的应用'
-import StyledComponentsC from './demo-styled-components/03-styled-components-样式任意化组件-高阶组件'
-import StyledComponentsD from './demo-styled-components/04-styled-components-复用性'
-import StyledComponentsE from './demo-styled-components/05-styled-components-动画样式'
-import ReactTestRendererA from './demo-单元测试/01-单元测试'
+// import TsA from './demo-TS/01-Ts介绍'
+// import StyledComponentsA from './demo-styled-components/01-styled-components-安装介绍'
+// import StyledComponentsB from './demo-styled-components/02-styled-components-生成组件透传props属性的应用'
+// import StyledComponentsC from './demo-styled-components/03-styled-components-样式任意化组件-高阶组件'
+// import StyledComponentsD from './demo-styled-components/04-styled-components-复用性'
+// import StyledComponentsE from './demo-styled-components/05-styled-components-动画样式'
+// import ReactTestRendererA from './demo-单元测试/01-单元测试'
 
-import DraftA from './demo-Draftjs(富文本)/demo-mentions(@列表)/demo-02'
-import DraftB from './demo-Draftjs(富文本)/demo-Emoji(表情符号)/SimpleEmojiEditor'
-import DraftC from './demo-Draftjs(富文本)/demo-image(图片)/AddImageEditor'
+// import DraftA from './demo-Draftjs(富文本)/demo-mentions(@列表)/demo-02'
+// import DraftB from './demo-Draftjs(富文本)/demo-Emoji(表情符号)/SimpleEmojiEditor'
+// import DraftC from './demo-Draftjs(富文本)/demo-image(图片)/AddImageEditor'
 // 导入的文件，需要在src目录下 (之前引入 // import '../public/css/app.css' public下的css文件时引起报错) ，解决办法可将文件移到src目录下 或配置 webpack.config.js内的new ModuleScopoPlugin 内容全部注释，重启项目即可
 // 引发的原因是ModuleScopePlugin这个插件功能是为了防止用户引入src目录之外的文件导致不可预期的结果。因为babel都是通过src目录内文件进行入口转义的，如果你引入了src目录外，例如src1，这样这个文件就不能经过babel转义。除非你保证你引入文件已经经过转义，所以你可以不使用该插件进行限制。
 import './css/app.css'
@@ -148,9 +148,9 @@ class app extends React.Component{
         // );
         return ( 
             <div>
-                <TestA></TestA>
+                {/* <TestA></TestA> */}
                  {/* <TestB.appb></TestB.appb> = <TestB></TestB> */}
-                <TestB></TestB>
+                {/* <TestB></TestB>
                 <TestC></TestC>
                 <TestD></TestD>
                 <TestE/>
@@ -195,9 +195,10 @@ class app extends React.Component{
                 <HooksL/>
                 <HooksN/>
                 <RouteA/>
-                <RouteB/>
-                <RouteC/>
-                <ReverseProxyA/>
+                <RouteB/> */}
+                {/* <RouteC/> */}
+                <ReduxD/>
+                {/* <ReverseProxyA/>
                 <CssModuleA/>
                 <ReduxA/>
                 <ReduxB/>
@@ -238,7 +239,7 @@ class app extends React.Component{
                 <ReactTestRendererA/>
                 <DraftA/>
                 <DraftB/>
-                <DraftC/>
+                <DraftC/> */}
             </div>
         );
       }

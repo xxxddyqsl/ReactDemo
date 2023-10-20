@@ -55,6 +55,10 @@ const reducer = (prevState, action) => {
            */
             newState.count++;
             return newState;
+        case "pushList":
+                newState.list.push(newState.ref.value);
+                newState.ref.value='';
+            return newState;
         default:
             // redux-persist持续数据化失效的经历 - 解构返回了一个新的对象 newState ，直接重置了为初始状态
             // return newState;错误 引发redux-persist持续数据化失效
@@ -65,7 +69,8 @@ const reducer = (prevState, action) => {
 // useReducer钩子 第二个参数 ： 外部初始状态值（就是个对象） 可多个状态
 const initialState = {
     count: 0,
-    // list:[]
+    list:[1,2,3],
+    ref:'',
 }
 export default function Test() {
     /*
@@ -76,8 +81,9 @@ export default function Test() {
     const [state, dispatch] = useReducer(reducer, initialState)
     return (
         <div className='app-assembly'>
-            <h1>10-useReducer</h1>
+            <h1>10-useReducer-状态管理</h1>
 
+            <div>
             <button onClick={() => {
                 // 调用  dispatch 时 会把对象（{type:'minus'} ）  传入外部定义的 处理函数 reducer(state) 中
                 dispatch(
@@ -91,6 +97,28 @@ export default function Test() {
                     { type: 'add' }
                 )
             }}>+</button>
+            </div>
+            <div>
+                <List state={state} dispatch={dispatch} ></List>
+            </div>
         </div>
+    )
+}
+
+function List(props){
+    return (
+        <>
+            <input type='text'  ref={(ele)=>props.state.ref=ele} />
+            {
+                props.state.list?.map((item,index)=><div key={index}>{item}</div>)
+            }
+            <button onClick={()=>{
+
+                props.dispatch(
+                    { type: 'pushList' }
+                )
+                console.log(props.state.ref)
+            }}>添加List</button>
+        </>
     )
 }

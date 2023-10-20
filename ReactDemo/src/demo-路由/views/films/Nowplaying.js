@@ -157,24 +157,24 @@ function FilmItem(props) {
     const { heightLight } = useHeightLight();
     return (
         <li className='main-tabs-item gg-flex-4' onClick={() => {
-            // 使用 路由封装的 useHistory
-            // history.push(`/detail/${item.filmId}`);
+            // 使用 路由封装的 useHistory 等价于 props.history
+            // history.push(`/detail/${filmId}`);
             //  编程式路由导航
             //路由传参方式1：动态路由 params参数   接收参数：this.props.match.params - 刷新后参数消失
-            //  props.history.push(`/detail/${item.filmId}`);
-            //  props.history.replace(`/detail/${item.filmId}`)
+            //  props.history.push(`/detail/${filmId}`);
+            //  props.history.replace(`/detail/${filmId}`)
 
             //路由传参方式2：query 参数   接收参数：this.props.location.query  - 刷新后参数消失
-            //  props.history.push({pathname:'/detail', query:{myid:item.filmId}});
-            //  props.history.replace({pathname:'/detail', query:{myid:item.filmId}})
+            //  props.history.push({pathname:'/detail', query:{myid:filmId}});
+            //  props.history.replace({pathname:'/detail', query:{myid:filmId}})
 
             //路由传参方式3：state 参数   接收参数：this.props.location.state  - 刷新后参数不会消失
             props.history.push({ pathname: '/detail', state: { myid: filmId } });
-            //  props.history.replace({pathname:'/detail', state:{myid:item.filmId}})
+            //  props.history.replace({pathname:'/detail', state:{myid:filmId}})
 
-            //  props.history.push(`/detail/`,{id:item.filmId});
+            //  props.history.push(`/detail/`,{id:filmId});
             // 路由导航方式- 编程式路由导航- replace 跳转式导航
-            console.log(props)
+            // console.log(props)
 
         }}>
             <img className='main-tabs-item-img' src={poster} alt='' title={name} />

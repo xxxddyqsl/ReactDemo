@@ -2,11 +2,11 @@ import React, { useState, useMemo, useEffect } from 'react'
 import axios from 'axios'
 
 /*
-    useMemo-记忆组件 -
+    useMemo-记忆组件 - 提高（优化）性能
     useCallback的功能完全可以由 useMemo 所取代，如果你想通过使用 useMemo 返回一个记忆函数也是完全可以的。
-    useCallback(()=>{},[name])   useMemo(()=>()=>{},[name])
+    useCallback(()=>{},[name])    useMemo(()=>()=>{},[name])
 
-    1：useMemo注入的 依赖没有改变 使用缓存 不会计算 提高性能
+    1：useMemo注入的 依赖没有改变 使用缓存 不会重新执行函数进行计算 提高性能
     2：useMemo注入的 依赖改变重新获取最新状态 重新计算执行函数
     3：useMemo 没有依赖 传入空数组 只执行一次 且 拿到的还是老的name ，永远不会被重新声明 拿到新的name
 
@@ -48,6 +48,8 @@ export default function Test() {
     /*
      useMemo 计算返回 如果依赖的CinemaList状态或者search状态 发生改变 重新声明 获取最新的状态 计算返回,
      如果依赖的状态 没有发送改变 则使用useMemo 缓存的结果 避免再次执行内部函数进行 filter() 计算过滤
+
+     就相当于 getCinemaList （是 [] 函数执行返回的结果） 并不是 指函数 而是useMemo() 内函数执行 得到的结果 如当前执行函数计算 过滤 返回的 数组数据
     */
     const getCinemaList = useMemo(() => () => {
         /*
@@ -70,7 +72,7 @@ export default function Test() {
     }, [])
     return (
         <div className='app-assembly'>
-            <h1>07-hooks-useMemo-记忆组件</h1>
+            <h1>07-hooks-useMemo-记忆组件 - 提高（优化）性能</h1>
             <div className={'main-tabs-wrapper'} style={{ width: '600px', height: '300px' }}>
                 {/* 搜索 */}
                 <div className='main-tabs-header gg-flex-1'>

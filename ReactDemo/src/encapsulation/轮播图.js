@@ -20,11 +20,14 @@ export class SwiperItem extends Component {
 export default class Test extends Component {
     // 初始化完成 -只执行一次
     componentDidMount() {
-
+        // 同步数据 - 初始化Swiper 轮播
+        this.initSwiper();
+        // console.log(this.props)
+        console.log('初始化Swiper 轮播')
     }
     render() {
         return (
-            <div className='swiper' style={{ width: '400px', minHeight: '200px', background: 'antiquewhite' }}>
+            <div className='swiper' style={{ width: '400px', minHeight: '130px', background: 'antiquewhite' }}>
                 <div className='swiper-wrapper'>
                     {/* 插槽 */}
                     {this.props.children}

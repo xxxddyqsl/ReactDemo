@@ -68,11 +68,16 @@ function useBannerList() {
         BannerList
     }
 }
-
+<style>
+    .ccc{{
+        color:'red'
+    }}
+</style>
 export default function Films(props) {
     // 自定义 hooks - 轮播图
     const { BannerList } = useBannerList();
     const [type, setType] = useState(0);
+    
     return (
         <div style={{ width: '400px', }}>
 
@@ -99,13 +104,14 @@ export default function Films(props) {
             </div>
             <ul className='gg-flex-3' style={{ justifyContent: 'space-between' }}>
                 <li onClick={() => {
+                    // 方式1： 设置状态 通过状态 判断是否添加选中状态
                     setType(0);
                     // 编程式路由导航-push跳转
                     props.history.push('/films/nowplaying')
                 }} style={{ padding: '3px 6px', backgroundColor: type === 0 ? 'teal' : '', borderRadius: '2px', border: '1px solid' }}>正在热映</li>
                 <li onClick={() => { setType(1)}} style={{ padding: '3px 6px', backgroundColor: type === 1 ? 'teal' : '', borderRadius: '2px', border: '1px solid' }}>
-                {/* 声明式路由导航- NavLink 跳转 */}
-                    <NavLink activeClassName='ccc' to={'/films/comingsoon'}>即将上映</NavLink>
+                {/* 声明式路由导航- NavLink 跳转  // 方式2：NavLink 通过 activeClassName 设置 选中的class名 增加样式 默认class名为 active */}
+                    <NavLink activeClassName='ccc' to={'/films/comingsoon/'}>即将上映</NavLink>
                 </li>
                 {/* <li onClick={() => {
                     setType(1)

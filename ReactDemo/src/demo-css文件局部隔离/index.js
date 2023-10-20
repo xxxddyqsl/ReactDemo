@@ -24,7 +24,7 @@ export default function Test() {
   console.log(styles)
   return (
     <div className={'app-assembly ' + styles.app}>
-        <h1>01-css模块化-css互不影响</h1>
+        <h1>01-cssModule-模块化-css互不影响</h1>
         <div className={styles.warper}>index组件使用 - index.module.css的class名: warper</div><br></br>
         <ul><li>通过styles.app - class选择器 优化 标签选择器 不污染全局的ul li样式</li></ul><br></br>
         <div className='win_warper'>全局样式 - 样式名称不被Module计算 保留原样式名</div><br></br>
